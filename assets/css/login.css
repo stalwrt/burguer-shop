@@ -28,3 +28,7 @@ input[type="submit"]{
     cursor: pointer;
     text-align: center;
 }
+
+input[type="submit"]:hover {
+    background: #00b8eb;
+}

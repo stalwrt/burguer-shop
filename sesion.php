@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="assets/css/sesion.css">
 </head>
 <body>
+    <?php
+        require 'views/header.php'
+    ?>
     <h1 class="sesion">Por favor, Inicia sesión o Crea una cuenta</h1>
 
     <a href="login.php">Iniciar sesión</a> ó

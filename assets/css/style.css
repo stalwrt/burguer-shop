@@ -4,6 +4,18 @@ body {
     font-family: 'Work Sans', sans-serif; /** esta fuente es para titulos y para textos  */
 }
 
+header {
+    background: #000;
+}
+
+header .logo {
+    color: #fff;
+}
+
+header .iconos {
+    color: #fff;
+}
+
 
 /*+ esto solo es para darme una idea de los contenedores */
 .navegacion {

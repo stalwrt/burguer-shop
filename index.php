@@ -18,19 +18,14 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@200&display=swap');
     </style>
+
+    <!-- link para iconos  -->
+    <script src="https://kit.fontawesome.com/200d0d3726.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-        <nav class="navegacion">
-        logo
-            <a href="">Inicio</a>
-            <a href="">Alimentos</a>
-            <a href="">Postres</a>
-            <a href="">Bebidas</a>
-
-            <a href="sesion.php">Logearse</a>
-        </nav>
-    </header>
+    <?php
+    require 'views/header.php'
+    ?>
 
     <div class="contenedor-principal">
 
