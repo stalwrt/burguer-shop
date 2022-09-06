@@ -10,9 +10,6 @@
 </head>
 <body>
     <!-- aqui no es necesario llamar al header, solo necesitaria un icono para regresar al inicio  -->
-    <?php
-    require 'views/header.php'
-    ?>
     <h1>Login</h1>
     <form action="login.php" method="post">
         <input type="text" name="email" placeholder="Ingresa tu email">

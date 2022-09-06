@@ -9,12 +9,11 @@
     <link rel="stylesheet" href="assets/css/sesion.css">
 </head>
 <body>
-    <?php
-        require 'views/header.php'
-    ?>
     <h1 class="sesion">Por favor, Inicia sesión o Crea una cuenta</h1>
 
     <a href="login.php">Iniciar sesión</a> ó
     <a href="signup.php">Crear cuenta</a>
+    <hr>
+    <a href="/burguershop">Inicio</a>
 </body>
 </html>

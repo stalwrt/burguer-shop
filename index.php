@@ -23,9 +23,37 @@
     <script src="https://kit.fontawesome.com/200d0d3726.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <?php
-    require 'views/header.php'
-    ?>
+<header>
+        <nav class="navegacion">
+            <a href="/burguershop">
+                <div class="logo">
+                    <i class="fa-solid fa-burger"></i>
+                </div>
+            </a>
+            
+
+            <!-- icono de inicio -->
+            <a href="/burguershop">
+                <div class="iconos">
+                    <i class="fa-solid fa-house"></i>
+                </div>
+            </a> 
+
+            <!-- icono de productos -->
+            <a href="">
+                <div class="iconos">
+                    <i class="fa-solid fa-pizza-slice"></i>
+                </div>
+            </a>
+
+            <!-- icono de usuario -->
+            <a href="sesion.php">
+                <div class="iconos">
+                    <i class="fa-regular fa-user"></i>
+                </div>
+            </a>
+        </nav>
+    </header>
 
     <div class="contenedor-principal">
 
@@ -71,12 +99,8 @@
 
     </div>
 
-    <footer>
-        <p>
-            Derechos reservados.
-            <br>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, ratione. Dolores repellendus dignissimos numquam, quo nostrum tenetur quaerat debitis rerum, odit dolor molestiae culpa nemo beatae pariatur! Veniam, dolorum illum?
-        </p>
-    </footer>
+    <?php
+    require 'views/footer.php'
+    ?>
 </body>
 </html>
