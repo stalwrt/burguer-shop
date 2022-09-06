@@ -6,8 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Burger Shop | Inicio</title>
 
-    <!--| conexion con la hoja de estilos -->
+    <!-- conexion con la hoja de estilos -->
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- fuente para titulos -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+    </style>
+
+    <!-- fuente para textos -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@200&display=swap');
+    </style>
 </head>
 <body>
     <header>
