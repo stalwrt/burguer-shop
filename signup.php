@@ -4,17 +4,18 @@
     $message = '';
 
     if(!empty($_POST['usuario']) && !empty($_POST['email']) && !empty($_POST['password'])){
-        $sql = 'INSERT INTO usuarios (usuario,email,passwor) VALUES (:usuario, :email, :password)'; //! solucionar este error 
+        $sql = "INSERT INTO usuarios (email,passwor) VALUES (:email, :password)"; //Porque cambia el color de password pero no de email? cual de los dos está mal?
         $stmt = $conexion->prepare($sql);
-        $stmt-> bindParam(':usuario',$_POST['usuario']);
-        $stmt-> bindParam(':email',$_POST['email']);
-        $password = password_hash($_POST['password'],PASSWORD_BCRYPT);
-        $stmt-> bindParam(':password',$_POST['password']);
+
+        //* bind_param es para vincular parametros
+        $stmt -> bind_param(':email',$_POST['email']);
+        $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+        $stmt -> bind_param(':pasword', $password);
 
         if($stmt->execute()){
             $message = 'Creación de cuenta exitosa!';
         } else {
-            $message = 'Ups!, hubo un error al crear tú cuenta';
+            $message = 'Ups!, ocurrió error al crear tú cuenta';
         }
     }
 ?>
@@ -36,10 +37,9 @@
     <?php endif; ?>
 
     <h1>Registro</h1>
-    <span>ó <a href="login.php">Inicia sesión</a></span>
+    <span>ó <a href="login.php">Inicia sesión</a></span> <!-- cambiar esto a login.php  -->
 
     <form action="signup.php" method="post">
-        <input type="text" name="usuario" placeholder="Ingresa tú nombre">
         <input type="text" name="email" placeholder="Ingresa tú email">
         <input type="password" name="password" placeholder="Ingresa tú contraseña">
         <input type="password" name="confirm_password" placeholder="Confirma tú contraseña">
