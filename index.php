@@ -1,75 +1,44 @@
+<?php
+  session_start();
+
+  require 'Config/Connection/database.php';
+
+  if (isset($_SESSION['user_id'])) {
+    $records = $conn->prepare('SELECT id, email, password FROM users WHERE id = :id');
+    $records->bindParam(':id', $_SESSION['user_id']);
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
+
+    $user = null;
+
+    if (count($results) > 0) {
+      $user = $results;
+    }
+  }
+?>
+
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Burger Shop | Inicio</title>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bienvenido a Burger Bistro</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="Assets/css/style.css">
+  </head>
+  <body>
+    <?php require 'Templates/header.php' ?>
 
-    <!--| conexion con la hoja de estilos -->
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-    <header>
-        <nav class="navegacion">
-        logo
-            <a href="">Inicio</a>
-            <a href="">Alimentos</a>
-            <a href="">Postres</a>
-            <a href="">Bebidas</a>
-        </nav>
-    </header>
+    <?php if(!empty($user)): ?>
+      <br> Bienvenido. <?= $user['email']; ?>
+      <br>Has iniciado sesión
+      <a href="Config/logout.php">
+        Cerrar sesión 
+      </a>
+    <?php else: ?>
+      <h1>Inicia sesión o crea una cuenta.</h1>
 
-    <div class="contenedor-principal">
-
-        <div class="producto">
-            <a href="#">
-                <h2>Producto</h2>
-            <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam autem temporibus quibusdam officia ipsa aut id delectus atque, itaque maiores.
-            </p>
-            <p>$56.00</p>
-            </a>
-        </div>
-
-        <div class="producto">
-            <a href="#">
-                <h2>Producto</h2>
-            <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam autem temporibus quibusdam officia ipsa aut id delectus atque, itaque maiores.
-            </p>
-            <p>$56.00</p>
-            </a>
-        </div>
-
-        <div class="producto">
-            <a href="#">
-                <h2>Producto</h2>
-            <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam autem temporibus quibusdam officia ipsa aut id delectus atque, itaque maiores.
-            </p>
-            <p>$56.00</p>
-            </a>
-        </div>
-
-        <div class="producto">
-            <a href="#">
-                <h2>Producto</h2>
-            <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam autem temporibus quibusdam officia ipsa aut id delectus atque, itaque maiores.
-            </p>
-            <p>$56.00</p>
-            </a>
-        </div>
-
-    </div>
-
-    <footer>
-        <p>
-            Derechos reservados.
-            <br>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, ratione. Dolores repellendus dignissimos numquam, quo nostrum tenetur quaerat debitis rerum, odit dolor molestiae culpa nemo beatae pariatur! Veniam, dolorum illum?
-        </p>
-    </footer>
-</body>
+      <a href="login.php">Iniciar sesión</a> o
+      <a href="signup.php">Registrarse</a>
+    <?php endif; ?>
+  </body>
 </html>
