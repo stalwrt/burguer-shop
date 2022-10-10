@@ -46,6 +46,7 @@
             <input name="password" type="password" placeholder="Contraseña">
             <input name="confirm_password" type="password" placeholder="Confirma tu contraseña">
             <button class="submit" type="submit">Vamos!</button>
+            ¿Ya tienes una cuenta?, <a href="login.php">Inicia sesión</a>
           </form>
           </div>
         </div>

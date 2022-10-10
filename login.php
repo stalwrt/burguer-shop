@@ -50,6 +50,7 @@
               <input name="email" type="text" placeholder="Email">
               <input name="password" type="password" placeholder="Contraseña">
               <button class="submit" type="submit">Vamos!</button>
+              ¿No tienes una cuenta?, <a href="signup.php">registrate</a>
             </form>
           </div>
         </div>
