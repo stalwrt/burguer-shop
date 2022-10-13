@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	if (!isset($_SESSION['codusu'])) {
+	if (!isset($_SESSION['id'])) {
 		header('location: index.php');
 	}
 ?>
@@ -23,16 +23,6 @@
 			<input class="ipt-procom" type="text" id="dirusu" placeholder="Dirección">
 			<br>
 			<input class="ipt-procom" type="text" id="telusu" placeholder="Celular">
-			<!-- <br>
-			<h4>Tipos de pago</h4>
-			<div class="metodo-pago">
-				<input type="radio" name="tipopago" value="1" id="tipo1">
-				<label for="tipo1">Pago por transferencia</label>
-			</div>
-			<div class="metodo-pago">
-				<input type="radio" name="tipopago" value="2" id="tipo2">
-				<label for="tipo2">Pago con tarjeta de crédito/débito</label>
-			</div> -->
 			<button onclick="procesar_compra()" style="margin-top: 5px;">Procesar compra</button>
 		</div>
 	</div>
@@ -52,15 +42,13 @@
 						html+=
 						'<div class="item-pedido">'+
 							'<div class="pedido-img">'+
-								'<img src="Assets/Images/productos/'+data.datos[i].rutimapro+'">'+
+								'<img src="Assets/Images/productos/'+data.datos[i].imagen+'">'+
 							'</div>'+
 							'<div class="pedido-detalle">'+
-								'<h3>'+data.datos[i].nompro+'</h3>'+
-								'<p><b>Precio:</b> S/ '+data.datos[i].prepro+'</p>'+
+								'<h3>'+data.datos[i].nombreProducto+'</h3>'+
+								'<p><b>Precio:</b> S/ '+data.datos[i].precioProducto+'</p>'+
 								'<p><b>Fecha:</b> '+data.datos[i].fecped+'</p>'+
-								'<p><b>Estado:</b> '+data.datos[i].estado+'</p>'+
 								'<p><b>Dirección:</b> '+data.datos[i].dirusuped+'</p>'+
-								'<p><b>Celular:</b> '+data.datos[i].telusuped+'</p>'+
 								'<button class="btn-delete-cart" onclick="delete_product('+data.datos[i].codped+')">Eliminar</button>'+
 							'</div>'+
 						'</div>';

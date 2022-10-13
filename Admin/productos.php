@@ -76,7 +76,7 @@
 		</div>
 	</div>
 	<div class="main-container">
-		<?php include("views/_directorios.php"); ?>
+		<?php include("Templates/_directorios.php"); ?>
 		<div class="body-page">
 			<h2>Mis productos</h2>
 			<table class="mt10">
@@ -96,14 +96,14 @@
 						while ($row=mysqli_fetch_array($resultado)) {
 							echo 
 					'<tr>
-						<td>'.$row['codpro'].'</td>
-						<td>'.$row['nompro'].'</td>
-						<td>'.$row['despro'].'</td>
-						<td>'.$row['prepro'].'</td>
+						<td>'.$row['codigoProducto'].'</td>
+						<td>'.$row['nombreProducto'].'</td>
+						<td>'.$row['descripcionProducto'].'</td>
+						<td>'.$row['precioProducto'].'</td>
 						<td class="td-option">
 							<div class="div-flex div-td-button">
-								<button onclick="edit_product('.$row['codpro'].')"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-								<button onclick="delete_product('.$row['codpro'].')"><i class="fa fa-trash" aria-hidden="true"></i></button>
+								<button onclick="edit_product('.$row['codigoProducto'].')"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+								<button onclick="delete_product('.$row['codigoProducto'].')"><i class="fa fa-trash" aria-hidden="true"></i></button>
 							</div>
 						</td>
 					</tr>';
@@ -146,10 +146,10 @@
 			request.send(fd);
 		}
 		function delete_product(codpro){
-			var c=confirm("Estas seguro de eliminar el producto de codigo "+codpro+"?");
+			var c=confirm("Estas seguro de eliminar el producto de codigo "+codigoProducto+"?");
 			if (c) {
 				let fd=new FormData();
-				fd.append('codpro',codpro);
+				fd.append('codigoProducto',codigoProducto);
 				let request=new XMLHttpRequest();
 				request.open('POST','api/delete_product.php',true);
 				request.onload=function(){
@@ -170,20 +170,20 @@
 
 		function edit_product(codpro){
 			let fd=new FormData();
-			fd.append('codpro',codpro);
+			fd.append('codigo',codigoProducto);
 			let request=new XMLHttpRequest();
 			request.open('POST','api/get_product.php',true);
 			request.onload=function(){
 				if (request.readyState==4 && request.status==200) {
 					let response=JSON.parse(request.responseText);
 					console.log(response);
-					document.getElementById("codigo-e").value=codpro;
-					document.getElementById("nombre-e").value=response.product.nompro;
-					document.getElementById("descripcion-e").value=response.product.despro;
-					document.getElementById("precio-e").value=response.product.prepro;
+					document.getElementById("codigo-e").value=codigoProducto;
+					document.getElementById("nombre-e").value=response.product.nombreProducto;
+					document.getElementById("descripcion-e").value=response.product.descripcionProducto;
+					document.getElementById("precio-e").value=response.product.precioProducto;
 					document.getElementById("estado-e").value=response.product.estado;
-					document.getElementById("rutimapro").src="../BurguerShop/assets/img/productos/"+response.product.rutimapro; 
-					document.getElementById("rutimapro-aux").value=response.product.rutimapro;
+					document.getElementById("imagen").src="../../BurguerShop/Assets/Images/Productos/"+response.product.imagen; 
+					document.getElementById("rutimapro-aux").value=response.product.imagen;
 					show_modal('modal-producto-edit');
 					//imagen-e
 				}
@@ -199,7 +199,7 @@
 			fd.append('precio',document.getElementById('precio-e').value);
 			fd.append('estado',document.getElementById('estado-e').value);
 			fd.append('imagen',document.getElementById('imagen-e').files[0]);
-			fd.append('rutimapro',document.getElementById("rutimapro-aux").value);
+			fd.append('imagen',document.getElementById("rutimapro-aux").value);
 			let request=new XMLHttpRequest();
 			request.open('POST','api/producto_update.php',true);
 			request.onload=function(){

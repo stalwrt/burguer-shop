@@ -5,12 +5,12 @@
 <html>
 <head>
 	<title>Administracion | Productos</title>
-	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/index.css">
 	<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 	<div class="main-container">
-		<?php include("layout/_directorios.php"); ?>
+		<?php include("Templates/_directorios.php"); ?>
 		<div class="body-page">
 			<h2>Inicio / Pendientes de despacho</h2>
 			<table class="mt10">
@@ -42,18 +42,18 @@
 								END
 							END estadotexto, ped.estado estadoped
 							from pedido ped
-							inner  join usuario usu
-							on ped.codusu=usu.codusu
+							inner  join users usu
+							on ped.id=usu.id
 							inner  join producto pro
-							on ped.codpro=pro.codpro
+							on ped.codigoProducto=pro.codigoProducto
 							where ped.estado=2 or ped.estado=3 or ped.estado=4";
 						$resultado=mysqli_query($con,$sql);
 						while ($row=mysqli_fetch_array($resultado)) {
 							echo 
 					'<tr>
 						<td>'.$row['codped'].'</td>
-						<td>'.$row['codusu'].' - '.$row['nomusu'].'</td>
-						<td>'.$row['codpro'].' - '.$row['nompro'].'</td>
+						<td>'.$row['id'].'</td>
+						<td>'.$row['codigoProducto'].' - '.$row['nombreProducto'].'</td>
 						<td>'.$row['fecped'].'</td>
 						<td>'.$row['estadotexto'].'</td>
 						<td>'.$row['dirusuped'].'</td>

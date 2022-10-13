@@ -11,7 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 <body>
-	<?php include("layouts/_main-header.php"); ?>
+	<?php include("Templates/header.php"); ?>
 	<div class="main-content">
 		<div class="content-page">
 			<div class="title-section">Resultados para <strong>"<?php echo $_GET['text']; ?>"</strong></div>
@@ -36,12 +36,12 @@
 					for (var i = 0; i < data.datos.length; i++) {
 						html+=
 						'<div class="product-box">'+
-							'<a href="producto.php?p='+data.datos[i].codpro+'">'+
+							'<a href="producto.php?p='+data.datos[i].codigoProducto+'">'+
 								'<div class="product">'+
-									'<img src="Assets/Images/productos/'+data.datos[i].rutimapro+'">'+
-									'<div class="detail-title">'+data.datos[i].nompro+'</div>'+
-									'<div class="detail-description">'+data.datos[i].despro+'</div>'+
-									'<div class="detail-price">'+formato_precio(data.datos[i].prepro)+'</div>'+
+									'<img src="Assets/Images/productos/'+data.datos[i].imagen+'">'+
+									'<div class="detail-title">'+data.datos[i].nombreProducto+'</div>'+
+									'<div class="detail-description">'+data.datos[i].descripcionProducto+'</div>'+
+									'<div class="detail-price">'+formato_precio(data.datos[i].precioProducto)+'</div>'+
 								'</div>'+
 							'</a>'+
 						'</div>';

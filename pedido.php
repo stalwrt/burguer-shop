@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	if (!isset($_SESSION['codusu'])) {
+	if (!isset($_SESSION['id'])) {
 		header('location: index.php');
 	}
 ?>
@@ -15,7 +15,7 @@
 </head>
 <body>
 	<!-- Agregar un header en los Templates  -->
-	<?php include("layouts/_main-header.php"); ?>
+	<?php include("Templates/header.php"); ?>
 	<div class="main-content">
 		<div class="content-page">
 			<h3>Mis pedidos</h3>
@@ -23,10 +23,6 @@
 			</div>
 			<h3>Datos de pago</h3>
 			<div class="p-line"><div>MONTO TOTAL:</div>$ &nbsp;<span id="montototal"></span></div>
-			<!-- <div class="p-line"><div>Banco:</div>BCP</div>
-			<div class="p-line"><div>N° de Cuenta:</div>191-45678945-006</div>
-			<div class="p-line"><div>Representante:</div>Encargado de ventas</div>
-			<p><b>NOTA:</b> Para confirmar la compra debe realizar el deposito por le monto total, y enviar el comprobante al siguiente correo example@example.com o al número de whatsapp 999 666 333</p> -->
 		</div>
 	</div>
 	<?php include("Templates/footer.php"); ?>
@@ -45,15 +41,13 @@
 						html+=
 						'<div class="item-pedido">'+
 							'<div class="pedido-img">'+
-								'<img src="Assets/Images/productos/'+data.datos[i].rutimapro+'">'+
+								'<img src="Assets/Images/productos/'+data.datos[i].imagen+'">'+
 							'</div>'+
 							'<div class="pedido-detalle">'+
-								'<h3>'+data.datos[i].nompro+'</h3>'+
-								'<p><b>Precio:</b> S/.'+data.datos[i].prepro+'</p>'+
+								'<h3>'+data.datos[i].nombreProducto+'</h3>'+
+								'<p><b>Precio:</b> S/.'+data.datos[i].precioProducto+'</p>'+
 								'<p><b>Fecha:</b> '+data.datos[i].fecped+'</p>'+
-								'<p><b>Estado:</b> '+data.datos[i].estadotext+'</p>'+
-								'<p><b>Dirección:</b> '+data.datos[i].dirusuped+'</p>'+
-								'<p><b>Celular:</b> '+data.datos[i].telusuped+'</p>'+
+								'<p><b>Dirección:</b> '+data.datos[i].dirusuped+'</p>'
 							'</div>'+
 						'</div>';
 						if (data.datos[i].estado=="2") {

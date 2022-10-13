@@ -12,7 +12,7 @@
 </head>
 <body>
 	<!-- Hacer header en los Templates  -->
-	<?php include("layouts/_main-header.php"); ?>
+	<?php include("Templates/header.php"); ?>
 	<div class="main-content">
 		<div class="content-page">
 			<div class="title-section">Mis compras realizadas</div>
@@ -35,13 +35,12 @@
 						html+=
 						'<div class="caja-detalle mb5">'+
 							'<div class="img">'+
-								'<img src="Assets/Images/productos'+data.datos[i].rutimapro+'">'+
+								'<img src="Assets/Images/productos'+data.datos[i].imagen+'">'+
 							'</div>'+
 							'<div class="detalle">'+
-								'<h3 class="mb5">'+data.datos[i].nompro+'</h3>'+
+								'<h3 class="mb5">'+data.datos[i].nombreProducto+'</h3>'+
 								'<p class="mb5">Fecha: '+data.datos[i].fecped+'</p>'+
-								'<p class="mb5">Estado: '+data.datos[i].estadotxt+'</p>'+
-								'<p class="mb5">'+data.datos[i].despro+'</p>'+
+								'<p class="mb5">'+data.datos[i].descripcionProducto+'</p>'+
 								'<h4 class="mb5">'+formato_precio(data.datos[i].prepro)+'</h4>'+
 							'</div>'+							
 						'</div>';

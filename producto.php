@@ -54,11 +54,11 @@
 						}
 						html+=
 						'<div class="product-box">'+
-							'<a href="producto.php?p='+data.datos[i].codpro+'">'+
+							'<a href="producto.php?p='+data.datos[i].codigoProducto+'">'+
 								'<div class="product">'+
-									'<img src="Assets/Images/productos/'+data.datos[i].rutimapro+'">'+
-									'<div class="detail-title">'+data.datos[i].nompro+'</div>'+
-									'<div class="detail-description">'+data.datos[i].despro+'</div>'+
+									'<img src="Assets/Images/productos/'+data.datos[i].imagen+'">'+
+									'<div class="detail-title">'+data.datos[i].nombreProducto+'</div>'+
+									'<div class="detail-description">'+data.datos[i].descripcionProducto+'</div>'+
 									'<div class="detail-price">'+formato_precio(data.datos[i].prepro)+'</div>'+
 								'</div>'+
 							'</a>'+
