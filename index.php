@@ -50,7 +50,7 @@ if (isset($_SESSION['user_id'])) {
     <?php
     include "Config/Connection/database.php";
 
-    $query = "SELECTO * FROM productos";
+    $query = "SELECT * FROM productos";
     $resultado = $conn->query($query);
     while ($row = $resultado->fetch()) {
     ?>
