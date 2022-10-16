@@ -1,3 +1,3 @@
 <header>
-  <a href="/burguershop/">Inicio</a>
+  <a href="/Burger_Shop/">Inicio</a>
 </header>

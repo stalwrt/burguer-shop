@@ -5,5 +5,5 @@
 
   session_destroy();
 
-  header('Location: /burguershop/');
+  header('Location: /Burger_Shop/');
 ?>
