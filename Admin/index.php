@@ -13,16 +13,16 @@
     <form action="config.php" method="post" enctype="multipart/form-data">
         <!-- required es para que se tengan que llenar los campos si o si  -->
         <label for="">Ingresa el nombre del producto</label>
-        <input type="text" name="nombre" required>
+        <input type="text" name="nombreProducto" required>
         <br>
         <label for="">Ingresa la descripción</label>
-        <input type="text" name="descripcion" required>
+        <input type="text" name="descripcionProducto" required>
         <br>
         <label for="">Ingresa el precio</label>
-        <input type="text" name="precio" required>
+        <input type="text" name="precioProducto" required>
         <br>
         <label for="">Seleccione la imagen que desea subir</label>
-        <input type="file" name="imagen" required>
+        <input type="file" name="imagenProducto" required>
         <br>
         <input type="submit" value="Enviar">
     </form>

@@ -1,24 +1,28 @@
 <?php
-    include "Connection/database.php";
+include "Connection/database.php";
+//! require "Connection/database.php";
+//= $query = "SELECT * FROM productos";
 
-    $nombre = $_REQUEST['nombre'];
-    $descripcion = $_REQUEST['descripcion'];
-    $precio = $_REQUEST['precio'];
+$nombre = $_REQUEST['nombreProducto'];
+$descripcion = $_REQUEST['descripcionProducto'];
+$precio = $_REQUEST['precioProducto'];
 
-    $nombre_img = $_FILES['imagen']['name']; //Contiene el nombre del archivo
-    $archivo = $_FILES['imagen']['tmp_name']; // Contiene el archivo como tal
+$nombre_img = $_FILES['imagenProducto']['name']; //+Contiene el nombre del archivo
+$archivo = $_FILES['imagenProducto']['tmp_name']; //+ Contiene el archivo como tal
 
-    $ruta = "images";
-    $ruta = $ruta."/".$nombre_img; // Images/nombre.jpg
+$ruta = "images";
+$ruta = $ruta . "/" . $nombre_img; // Images/nombre.jpg
 
-    move_uploaded_file($archivo,$ruta);
+move_uploaded_file($archivo, $ruta);
 
-    //= $query = mysql_query("INSERT INTO productos VALUES ('','".$nombre."','".$descripcion.'",'".$precio.'",'".$ruta."',)"); 
+//= $query = mysql_query("INSERT INTO productos VALUES ('','".$nombre."','".$descripcion.'",'".$precio.'",'".$ruta."',)"); 
 
-    $query = mysql_query("INSERT INTO productos VALUES ()");
+//| $query = mysql_query("INSERT INTO productos VALUES ()");
 
-    if($query){
-        echo "Insertado correctamente";
-    } else {
-        echo "Error al insertar";
-    }
+$query = "INSERT INTO productos VALUES('','$nombre','$descripcion','$precio','$ruta')";
+
+if ($query) {
+    echo "Insertado correctamente";
+} else {
+    echo "Error al insertar";
+}
