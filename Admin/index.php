@@ -10,7 +10,7 @@
 
 <body>
     <h1>Productos</h1>
-    <form action="config.php" method="post" enctype="multipart/form-data">
+    <form action="agregar.php" method="post" enctype="multipart/form-data">
         <!-- required es para que se tengan que llenar los campos si o si  -->
         <label for="">Ingresa el nombre del producto</label>
         <input type="text" name="nombreProducto" required>
