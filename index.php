@@ -23,9 +23,7 @@ if (isset($_SESSION['user_id'])) {
 <head>
   <meta charset="utf-8">
   <title>Bistro Online | Inicio</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link rel="stylesheet" href="assets/CSS/style.css">
-  <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -36,14 +34,14 @@ if (isset($_SESSION['user_id'])) {
   <?php if (!empty($user)) : ?>
     <br> Bienvenido. <?= $user['email']; ?>
     <br>Has iniciado sesión
-    <a href="logout.php">
+    <a href="/burger_shop/Config/logout.php">
       Cerrar sesión
     </a>
   <?php else : ?>
     <h1>Por favor, inicia sesión o registrate</h1>
 
-    <a href="login.php">Login</a> or
-    <a href="signup.php">SignUp</a>
+    <a href="login.php">Inicia sesión</a> ó
+    <a href="signup.php">Registrate</a>
   <?php endif; ?>
 
   <!-- FIN DE SECCION DE LOGIN -->
