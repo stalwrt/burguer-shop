@@ -24,10 +24,13 @@ if (isset($_SESSION['user_id'])) {
   <meta charset="utf-8">
   <title>Bistro Online | Inicio</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/CSS/style.css">
+  <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+
+  <!-- SECCION DE LOGIN -->
   <?php require 'Templates/header.php' ?>
 
   <?php if (!empty($user)) : ?>
@@ -42,6 +45,8 @@ if (isset($_SESSION['user_id'])) {
     <a href="login.php">Login</a> or
     <a href="signup.php">SignUp</a>
   <?php endif; ?>
+
+  <!-- FIN DE SECCION DE LOGIN -->
 
   <!-- CATALOGOS DE PRODUCTOS  -->
   <h2>Productos</h2>
@@ -71,6 +76,8 @@ if (isset($_SESSION['user_id'])) {
     }
     ?>
   </div>
+
+  <script src="Assets/JS/main.js"></script>
 </body>
 
 </html>
