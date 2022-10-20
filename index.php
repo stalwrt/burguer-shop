@@ -28,6 +28,42 @@ if (isset($_SESSION['user_id'])) {
 
 <body>
 
+  <nav class="sidebar">
+    <div class="sidebar-inner">
+      <header class="sidebar-header">
+        <button type="button" class="sidebar-burger" onclick="toggleSidebar()"></button>
+        <img src="Assets/SVG/menu.svg" class="sidebar-logo">
+      </header>
+      <nav class="sidebar-menu">
+        <!-- Inicio  -->
+        <button type="button" class="has-border">
+          <img src="Assets/SVG/house.svg">
+          <span>Inicio</span>
+        </button>
+        <!-- Menu  -->
+        <button type="button" class="has-border">
+          <img src="Assets/SVG/menu.svg">
+          <span>Inicio</span>
+        </button>
+        <!-- Usuario  -->
+        <button type="button" class="has-border">
+          <img src="Assets/SVG/user.svg">
+          <span>Inicio</span>
+        </button>
+        <!-- carrito  -->
+        <button type="button" class="has-border">
+          <img src="Assets/SVG/bag.svg">
+          <span>Inicio</span>
+        </button>
+        <!-- sobre la empresa  -->
+        <button type="button" class="has-border">
+          <img src="Assets/SVG/question.svg">
+          <span>Inicio</span>
+        </button>
+      </nav>
+    </div>
+  </nav>
+
   <!-- SECCION DE LOGIN -->
   <?php require 'Templates/header.php' ?>
 
@@ -75,7 +111,9 @@ if (isset($_SESSION['user_id'])) {
     ?>
   </div>
 
-  <script src="Assets/JS/main.js"></script>
+  <script type="text/javascript">
+    const toggleSidebar = () => document.body.classList.toggle('open');
+  </script>
 </body>
 
 </html>
