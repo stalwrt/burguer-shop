@@ -223,12 +223,11 @@ body.open .sidebar {
 }
 
 body.open .sidebar-burger {
-	background: url(#);
-	/* poner una imagen de una x para cerrar el menu */
+	background: url(../SVG/x.svg);
 }
 
 .sidebar-logo {
-	/* tengo un logo?  */
+	/*+ tengo un logo?  */
 	height: 20px;
 }
 
@@ -262,4 +261,8 @@ body.open .sidebar-burger {
 
 .sidebar-menu > button > span {
 	color: #f9f9f9;
+}
+
+.main-contenedor {
+	margin-left: 20px;
 }

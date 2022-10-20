@@ -43,72 +43,74 @@ if (isset($_SESSION['user_id'])) {
         <!-- Menu  -->
         <button type="button" class="has-border">
           <img src="Assets/SVG/menu.svg">
-          <span>Inicio</span>
+          <span>Menú</span>
         </button>
         <!-- Usuario  -->
         <button type="button" class="has-border">
           <img src="Assets/SVG/user.svg">
-          <span>Inicio</span>
+          <span>Sesión</span>
         </button>
         <!-- carrito  -->
         <button type="button" class="has-border">
           <img src="Assets/SVG/bag.svg">
-          <span>Inicio</span>
+          <span>Carrito</span>
         </button>
         <!-- sobre la empresa  -->
         <button type="button" class="has-border">
           <img src="Assets/SVG/question.svg">
-          <span>Inicio</span>
+          <span>Sobre nosotros</span>
         </button>
       </nav>
     </div>
   </nav>
 
-  <!-- SECCION DE LOGIN -->
-  <?php require 'Templates/header.php' ?>
+  <div class="main-contenedor">
+    <!-- SECCION DE LOGIN -->
+    <?php require 'Templates/header.php' ?>
 
-  <?php if (!empty($user)) : ?>
-    <br> Bienvenido. <?= $user['email']; ?>
-    <br>Has iniciado sesión
-    <a href="/burger_shop/Config/logout.php">
-      Cerrar sesión
-    </a>
-  <?php else : ?>
-    <h1>Por favor, inicia sesión o registrate</h1>
+    <?php if (!empty($user)) : ?>
+      <br> Bienvenido. <?= $user['email']; ?>
+      <br>Has iniciado sesión
+      <a href="/burger_shop/Config/logout.php">
+        Cerrar sesión
+      </a>
+    <?php else : ?>
+      <h1>Por favor, inicia sesión o registrate</h1>
 
-    <a href="login.php">Inicia sesión</a> ó
-    <a href="signup.php">Registrate</a>
-  <?php endif; ?>
+      <a href="login.php">Inicia sesión</a> ó
+      <a href="signup.php">Registrate</a>
+    <?php endif; ?>
 
-  <!-- FIN DE SECCION DE LOGIN -->
+    <!-- FIN DE SECCION DE LOGIN -->
 
-  <!-- CATALOGOS DE PRODUCTOS  -->
-  <h2>Productos</h2>
+    <!-- CATALOGOS DE PRODUCTOS  -->
+    <h2>Productos</h2>
 
-  <div class="contenedor">
-    <?php
-    include "Config/Connection/database.php";
+    <div class="contenedor">
+      <?php
+      include "Config/Connection/database.php";
 
-    $query = "SELECT * FROM productos";
-    $resultado = $conn->query($query);
-    while ($row = $resultado->fetch()) {
-    ?>
+      $query = "SELECT * FROM productos";
+      $resultado = $conn->query($query);
+      while ($row = $resultado->fetch()) {
+      ?>
 
-      <div class="card">
-        <img src="data:image/jpg;base64, <?php echo base64_encode($row['imagenProducto']); ?>">
-        <h4><?php echo $row['nombreProducto']; ?></h4>
-        <p>
-          <?php echo $row['descripcionProducto']; ?>
-        </p>
-        <span>
-          <?php echo $row['precioProducto']; ?>
-        </span>
-        <a href="#">Comprar ahora</a>
-      </div>
+        <div class="card">
+          <img src="data:image/jpg;base64, <?php echo base64_encode($row['imagenProducto']); ?>">
+          <h4><?php echo $row['nombreProducto']; ?></h4>
+          <p>
+            <?php echo $row['descripcionProducto']; ?>
+          </p>
+          <span>
+            <?php echo $row['precioProducto']; ?>
+          </span>
+          <a href="#">Comprar ahora</a>
+        </div>
 
-    <?php
-    }
-    ?>
+      <?php
+      }
+      ?>
+    </div>
   </div>
 
   <script type="text/javascript">
