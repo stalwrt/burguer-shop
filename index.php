@@ -28,41 +28,9 @@ if (isset($_SESSION['user_id'])) {
 
 <body>
 
-  <nav class="sidebar">
-    <div class="sidebar-inner">
-      <header class="sidebar-header">
-        <button type="button" class="sidebar-burger" onclick="toggleSidebar()"></button>
-        <img src="Assets/SVG/menu.svg" class="sidebar-logo">
-      </header>
-      <nav class="sidebar-menu">
-        <!-- Inicio  -->
-        <button type="button" class="has-border">
-          <img src="Assets/SVG/house.svg">
-          <span>Inicio</span>
-        </button>
-        <!-- Menu  -->
-        <button type="button" class="has-border">
-          <img src="Assets/SVG/menu.svg">
-          <span>Menú</span>
-        </button>
-        <!-- Usuario  -->
-        <button type="button" class="has-border">
-          <img src="Assets/SVG/user.svg">
-          <span>Sesión</span>
-        </button>
-        <!-- carrito  -->
-        <button type="button" class="has-border">
-          <img src="Assets/SVG/bag.svg">
-          <span>Carrito</span>
-        </button>
-        <!-- sobre la empresa  -->
-        <button type="button" class="has-border">
-          <img src="Assets/SVG/question.svg">
-          <span>Sobre nosotros</span>
-        </button>
-      </nav>
-    </div>
-  </nav>
+  <?php
+  include 'Templates/navbar.php';
+  ?>
 
   <div class="main-contenedor">
     <!-- SECCION DE LOGIN -->
