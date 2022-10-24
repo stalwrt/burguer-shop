@@ -29,6 +29,7 @@ if (isset($_SESSION['user_id'])) {
 <body>
 
   <?php
+  include 'Config/Connection/database.php';
   include 'Templates/navbar.php';
   ?>
 
@@ -55,29 +56,7 @@ if (isset($_SESSION['user_id'])) {
     <h2>Productos</h2>
 
     <div class="contenedor">
-      <?php
-      include "Config/Connection/database.php";
 
-      $query = "SELECT * FROM productos";
-      $resultado = $conn->query($query);
-      while ($row = $resultado->fetch()) {
-      ?>
-
-        <div class="card">
-          <img src="data:image/jpg;base64, <?php echo base64_encode($row['imagenProducto']); ?>">
-          <h4><?php echo $row['nombreProducto']; ?></h4>
-          <p>
-            <?php echo $row['descripcionProducto']; ?>
-          </p>
-          <span>
-            <?php echo $row['precioProducto']; ?>
-          </span>
-          <a href="#">Comprar ahora</a>
-        </div>
-
-      <?php
-      }
-      ?>
     </div>
   </div>
 

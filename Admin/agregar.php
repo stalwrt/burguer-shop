@@ -1,7 +1,5 @@
 <?php
 include "Connection/database.php";
-//! require "Connection/database.php";
-//= $query = "SELECT * FROM productos";
 
 $nombre = $_REQUEST['nombreProducto'];
 $descripcion = $_REQUEST['descripcionProducto'];
@@ -15,9 +13,7 @@ $ruta = $ruta . "/" . $nombre_img; // Images/nombre.jpg
 
 move_uploaded_file($archivo, $ruta);
 
-//= $query = mysql_query("INSERT INTO productos VALUES ('','".$nombre."','".$descripcion.'",'".$precio.'",'".$ruta."',)"); 
-
-//| $query = mysql_query("INSERT INTO productos VALUES ()");
+//= $query = mysql_query("INSERT INTO productos VALUES ('','$nombre','$descripcion','$precio','$ruta')");
 
 $query = "INSERT INTO productos VALUES('','$nombre','$descripcion','$precio','$ruta')";
 
