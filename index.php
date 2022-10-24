@@ -56,7 +56,28 @@ if (isset($_SESSION['user_id'])) {
     <h2>Productos</h2>
 
     <div class="contenedor">
+      <?php
+      $query = $conn->query("SELECT * FROM productos");
 
+      $query = "SELECT * FROM productos";
+
+      if ($result = $conn->query($query)) {
+        // fetch associative array
+        while ($row = $result->fetch()) {
+          $field1name = $row["nombreProducto"];
+          $field2name = $row["descripcionProducto"];
+          $field3name = $row["precioProducto"];
+          $field4name = $row["imagenProducto"];
+
+          //+ Solo me sirve como referencia 
+          // echo '<b>' . $field1name . $field2name . '</b>';
+          // echo $field3name . '<br/>';
+          // echo $field4name;
+
+          echo '<div class="box"> <h1 class="titulo">' . $field1name . '</h1> <p class="descripcion">' . $field2name . '</p> <span class="precio">' . $field3name . '</span></div>';
+        }
+      }
+      ?>
     </div>
   </div>
 
