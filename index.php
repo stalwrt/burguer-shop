@@ -39,10 +39,10 @@ if (isset($_SESSION['user_id'])) {
 
     <?php if (!empty($user)) : ?>
       <br> Bienvenido. <?= $user['email']; ?>
-      <br>Has iniciado sesión
+      <!-- <br>Has iniciado sesión
       <a href="/burger_shop/Config/logout.php">
         Cerrar sesión
-      </a>
+      </a> -->
     <?php else : ?>
       <h1>Por favor, inicia sesión o registrate</h1>
 
@@ -55,7 +55,7 @@ if (isset($_SESSION['user_id'])) {
     <!-- CATALOGOS DE PRODUCTOS  -->
     <h2>Productos</h2>
 
-    <div class="contenedor">
+    <section class="card-container">
       <?php
       $query = $conn->query("SELECT * FROM productos");
 
@@ -74,11 +74,23 @@ if (isset($_SESSION['user_id'])) {
           // echo $field3name . '<br/>';
           // echo $field4name;
 
-          echo '<div class="box"> <h1 class="titulo">' . $field1name . '</h1> <p class="descripcion">' . $field2name . '</p> <span class="precio">' . $field3name . '</span></div>';
+          echo
+          '<div class="card"> 
+            <figure> 
+              <img scr="">
+            </figure> 
+            <div class="contenido">
+              <h3>' . $field1name . '</h3> 
+              <p>' . $field2name . '</p> 
+              <span class="precio"> $' . $field3name . '</span>
+              <br>
+              <a href="#">Saber más</a>
+            </div>
+          </div>';
         }
       }
       ?>
-    </div>
+    </section>
   </div>
 
   <script type="text/javascript">

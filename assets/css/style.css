@@ -266,3 +266,77 @@ body.open .sidebar-burger {
 .main-contenedor {
 	margin-left: 5px;
 }
+
+/** CARD  */
+.card-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	align-items: flex-start;
+	align-content: flex-start;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	flex-direction: row;
+	border: 5px solid black;
+	padding: 15px;
+}
+
+.card-container .card {
+	width: 100%;
+	height: 100%;
+	margin: 5px;
+	border-radius: 6px;
+	overflow: hidden;
+	background-color: #fff;
+	box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+	transition: all 400ms ease;
+	margin: 5px;
+}
+
+.card:hover {
+	box-shadow: 5px 5px 20px rgb(0, 0, 0, 0.4);
+	transform: translateY(-2%);
+}
+
+.card img {
+	width: 100%;
+	height: 210px;
+}
+
+.card .contenido {
+	padding: 15px;
+	text-align: center;
+}
+.card .contenido h3 {
+	font-weight: 400;
+	margin-bottom: 15px;
+	font-size: 15px;
+}
+
+.card .contenido p {
+	line-height: 1.5;
+	color: #6a6a6a;
+	font-size: 12px;
+}
+
+/* .card .contenido span {
+	color: black;
+} */
+.card .contenido a {
+	text-decoration: none;
+	display: inline-block;
+	margin-top: 10px;
+	color: #000;
+	border: 1px solid #feca57;
+	border-radius: 4px;
+	background: #feca57;
+	transition: all 400ms ease;
+	padding: 5px;
+}
+
+.card .contenido a:hover {
+	background: #000;
+	border: 1px solid #000;
+	color: #feca57;
+}
