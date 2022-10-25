@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require 'Config/Connection/database.php';
+require 'Lib/Connection/db.php';
 
 if (isset($_SESSION['user_id'])) {
   $records = $conn->prepare('SELECT idUsuario, email, password FROM usuarios WHERE idUsuario = :idUsuario');
@@ -29,7 +29,7 @@ if (isset($_SESSION['user_id'])) {
 <body>
 
   <?php
-  include 'Config/Connection/database.php';
+  include 'Lib/Connection/db.php';
   include 'Templates/navbar.php';
   ?>
 
@@ -39,10 +39,6 @@ if (isset($_SESSION['user_id'])) {
 
     <?php if (!empty($user)) : ?>
       <br> Bienvenido. <?= $user['email']; ?>
-      <!-- <br>Has iniciado sesión
-      <a href="/burger_shop/Config/logout.php">
-        Cerrar sesión
-      </a> -->
     <?php else : ?>
       <h1>Por favor, inicia sesión o registrate</h1>
 
@@ -53,49 +49,25 @@ if (isset($_SESSION['user_id'])) {
     <!-- FIN DE SECCION DE LOGIN -->
 
     <!-- CATALOGOS DE PRODUCTOS  -->
-    <h2>Productos</h2>
-
-    <section class="card-container">
+    <main>
+      <h2>Productos</h2>
+      <br>
       <?php
-      $query = $conn->query("SELECT * FROM productos");
+      $response = json_decode(file_get_contents('http://localhost/burger_shop/api/productos/api-producto.php?categoria=hamburguesas'), true);
 
-      $query = "SELECT * FROM productos";
-
-      if ($result = $conn->query($query)) {
-        // fetch associative array
-        while ($row = $result->fetch()) {
-          $field1name = $row["nombreProducto"];
-          $field2name = $row["descripcionProducto"];
-          $field3name = $row["precioProducto"];
-          $field4name = $row["imagenProducto"];
-
-          //+ Solo me sirve como referencia 
-          // echo '<b>' . $field1name . $field2name . '</b>';
-          // echo $field3name . '<br/>';
-          // echo $field4name;
-
-          echo
-          '<div class="card"> 
-            <figure> 
-              <img scr="">
-            </figure> 
-            <div class="contenido">
-              <h3>' . $field1name . '</h3> 
-              <p>' . $field2name . '</p> 
-              <span class="precio"> $' . $field3name . '</span>
-              <br>
-              <a href="#">Saber más</a>
-            </div>
-          </div>';
+      if ($response['statuscode'] == 200) {
+        foreach ($response['items'] as $item) {
+          include('Templates/items.php');
         }
+      } else {
+        // mostrar error
       }
       ?>
-    </section>
-  </div>
+    </main>
 
-  <script type="text/javascript">
-    const toggleSidebar = () => document.body.classList.toggle('open');
-  </script>
+    <script type="text/javascript">
+      const toggleSidebar = () => document.body.classList.toggle('open');
+    </script>
 </body>
 
 </html>
