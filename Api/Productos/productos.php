@@ -11,7 +11,7 @@ class Productos extends DB
     public function get($id)
     {
         $query = $this->connect()->prepare('SELECT * FROM productos WHERE id = :id LIMIT 0,12');
-        $query->execute(['idProducto' => $id]);
+        $query->execute(['id' => $id]);
 
         $row = $query->fetch();
 
