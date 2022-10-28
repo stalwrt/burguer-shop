@@ -30,7 +30,8 @@ if (isset($_SESSION['user_id'])) {
 
   <?php
   include 'Lib/Connection/db.php';
-  include 'Templates/navbar.php';
+  // include 'Templates/navbar.php';
+  include_once('Templates/menu.php');
   ?>
 
   <div class="main-contenedor">
@@ -68,6 +69,7 @@ if (isset($_SESSION['user_id'])) {
     <script type="text/javascript">
       const toggleSidebar = () => document.body.classList.toggle('open');
     </script>
+    <script src="Assets/JS/main.js"></script>
 </body>
 
 </html>

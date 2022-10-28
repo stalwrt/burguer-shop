@@ -7,6 +7,6 @@
         <h3><?php echo $item['nombre']; ?></h3>
         <p><?php echo $item['descripcion']; ?></p>
         <span><?php echo $item['precio']; ?></span>
-        <button>Agregar al carrito</button>
+        <button class="btn-add">Agregar al carrito</button>
     </div>
 </div>
