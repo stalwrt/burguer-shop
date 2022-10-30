@@ -4,7 +4,7 @@ session_start();
 require 'Lib/Connection/dbUsuario.php';
 
 if (isset($_SESSION['user_id'])) {
-    $records = $conn->prepare('SELECT idUsuario, email, password FROM users WHERE idUsuario = :idUsuario');
+    $records = $conn->prepare('SELECT idUsuario, email, password FROM usuarios WHERE idUsuario = :idUsuario');
     $records->bindParam(':idUsuario', $_SESSION['user_id']);
     $records->execute();
     $results = $records->fetch(PDO::FETCH_ASSOC);

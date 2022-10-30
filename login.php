@@ -8,7 +8,7 @@ if (isset($_SESSION['user_id'])) {
 require 'Lib/Connection/dbUsuario.php';
 
 if (!empty($_POST['email']) && !empty($_POST['password'])) {
-  $records = $conn->prepare('SELECT idUsuario, email, password FROM users WHERE email = :email');
+  $records = $conn->prepare('SELECT idUsuario, email, password FROM usuarios WHERE email = :email');
   $records->bindParam(':email', $_POST['email']);
   $records->execute();
   $results = $records->fetch(PDO::FETCH_ASSOC);
@@ -41,15 +41,6 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
   <?php if (!empty($message)) : ?>
     <p> <?= $message ?></p>
   <?php endif; ?>
-
-  <!-- <h1>Inicio de sesión</h1>
-  <span>ó <a href="signup.php">Registrate</a></span>
-
-  <form action="login.php" method="POST">
-    <input name="email" type="text" placeholder="Email">
-    <input name="password" type="password" placeholder="Contraseña">
-    <input type="submit" value="Submit">
-  </form> -->
 
   <section class="login">
     <div class="login_box">

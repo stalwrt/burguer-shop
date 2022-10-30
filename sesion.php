@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require 'Config/Connection/database.php';
+require 'Lib/Connection/dbUsuario.php';
 
 if (isset($_SESSION['user_id'])) {
     $records = $conn->prepare('SELECT idUsuario, email, password FROM usuarios WHERE idUsuario = :idUsuario');
