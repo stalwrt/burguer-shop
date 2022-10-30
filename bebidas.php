@@ -11,7 +11,7 @@
 
 <body>
     <?php
-    include_once('Templates/navbar.php');
+    include_once('Templates/menu.php');
     ?>
 
     <main>

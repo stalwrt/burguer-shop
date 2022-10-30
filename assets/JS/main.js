@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', (event) => {
 	// cookies
 	const cookies = document.cookie.split(';');
-	let cookie = NULL;
+	let cookie = null;
 
 	cookies.forEach((item) => {
 		if (item.indexOf('items') > -1) {
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		}
 	});
 
-	if (cookie != NULL) {
+	if (cookie != null) {
 		const count = cookie.split('=')[1];
 		console.log(count);
 		document.querySelector('.btn-carrito').innerHTML = `(${count}) Carrito`;
@@ -31,7 +31,7 @@ bCarrito.addEventListener('click', (event) => {
 
 function actualizarCarritoUI() {
 	fetch('http://localhost/burger_shop/api/carrito/api-carrito.php?action=mostrar')
-		.then((Response) => response.json())
+		.then((response) => response.json())
 		.then((data) => {
 			console.log(data);
 			let tablaCont = document.querySelector('#tabla');
@@ -42,7 +42,7 @@ function actualizarCarritoUI() {
 				html += `
                 <div class="fila">
                     <div class="imagen">
-                        <img scr="Assets/Images/${element.imagen}" width="100"/>
+                        <img scr="Images/${element.imagen}" width="100"/>
                     </div>
 				
                     <div class="info">

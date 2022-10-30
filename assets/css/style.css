@@ -176,100 +176,13 @@ img {
 	margin-top: -3px;
 }
 
-/* MENU LATERAL */
-button {
-	background: transparent;
-	border: 0;
-	padding: 0;
-	cursor: pointer;
-}
-
-.sidebar {
-	position: absolute;
-	overflow: hidden;
-	top: 0;
-	left: 0;
-	width: 60px;
-	height: 100%;
-	background: var(--bg-nav);
-	transition: width 0.4s;
-}
-
-body.open .sidebar {
-	width: 260px;
-}
-
-.sidebar-inner {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 300px;
-}
-
-.sidebar-header {
-	display: flex;
-	align-items: center;
-	height: 72px;
-	padding: 0 1.25rem 0 0;
-	background: rgb(0, 0, 0, 0.1);
-}
-
-.sidebar-burger {
-	width: 60px;
-	height: 60px;
-	display: grid;
-	place-items: center;
-	background: url(../SVG/menu.svg) no-repeat center center;
-}
-
-body.open .sidebar-burger {
-	background: url(../SVG/x.svg);
-}
-
-.sidebar-logo {
-	/*+ tengo un logo?  */
-	height: 20px;
-}
-
-.sidebar-menu {
-	display: grid;
-}
-
-.sidebar-menu > button {
-	display: flex;
-	gap: 25px;
-	align-items: center;
-	height: 60px;
-	font-family: 'Poppins';
-	font-size: 16px;
-	font-weight: 200;
-	letter-spacing: 2px;
-	line-height: 1;
-	padding: 0 25 px;
-	margin-left: 13px;
-}
-
-.sidebar-menu > button.has-border {
-	padding-bottom: 16px;
-	margin-bottom: 16px;
-}
-
-.sidebar-menu > button > img {
-	width: 24px;
-	height: 24px;
-}
-
-.sidebar-menu > button > span {
-	color: #f9f9f9;
-}
-
-.main-contenedor {
-	margin-left: 5px;
-}
-
 /** CARD  */
 .card-container {
-	display: flex;
+	/*| ordenar los card */
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+	gap: 16px;
+
 	flex-wrap: wrap;
 	justify-content: space-evenly;
 	align-items: flex-start;
@@ -278,7 +191,7 @@ body.open .sidebar-burger {
 	height: 100%;
 	overflow: auto;
 	flex-direction: row;
-	border: 5px solid black;
+	/* border: 5px solid black; */
 	padding: 15px;
 }
 
@@ -296,7 +209,7 @@ body.open .sidebar-burger {
 
 .card:hover {
 	box-shadow: 5px 5px 20px rgb(0, 0, 0, 0.4);
-	transform: translateY(-2%);
+	transform: translateY(-1%);
 }
 
 .card img {
@@ -320,9 +233,6 @@ body.open .sidebar-burger {
 	font-size: 12px;
 }
 
-/* .card .contenido span {
-	color: black;
-} */
 .card .contenido a {
 	text-decoration: none;
 	display: inline-block;
@@ -347,7 +257,7 @@ body.open .sidebar-burger {
 }
 
 .menu-top ul {
-	padding: 0;
+	padding: 5px;
 	margin: 0;
 }
 
@@ -361,6 +271,11 @@ body.open .sidebar-burger {
 	color: #fff;
 	padding: 10px;
 	text-decoration: none;
+	font-size: 13px;
+}
+
+.menu-top ul li a:hover {
+	color: burlywood;
 }
 
 .carrito {
@@ -375,30 +290,32 @@ body.open .sidebar-burger {
 	color: #000;
 }
 
-/*! creo que esto podria afectar a los estilos de mi pagina  */
-main {
-	margin: o auto;
-	width: 600px;
-}
-
 /*° creo que este estilo de boton no es necesario, ya tengo uno  */
 button {
-	border: 0;
+	border: 1px solid black;
 	border-radius: 8px;
-	background: #c5c5c5;
+	background: #fdcb6e;
 	cursor: pointer;
 	padding: 10px;
+}
+
+button:hover {
+	background: black;
+	color: #fff;
+	transition: 0.2s ease-out;
 }
 
 #carrito-container {
 	width: 400px;
 	background: #fff;
 	border: solid 1px #000;
+	border-radius: 5px;
 	padding: 10px;
 	box-sizing: border-box;
 	position: absolute;
 	right: 0;
 	margin-top: 10px;
+	margin-right: 15px;
 	display: none;
 }
 
@@ -434,4 +351,9 @@ button {
 	font-size: 24px !important;
 	text-align: center;
 	font-weight: bold;
+}
+
+/*+ CONTENEDOR DE PRODUCTOS  */
+.contenedor-productos {
+	border: 5px solid black;
 }

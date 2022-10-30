@@ -30,28 +30,27 @@ if (isset($_SESSION['user_id'])) {
 
   <?php
   include 'Lib/Connection/dbUsuario.php';
-  //* include 'Templates/navbar.php';
   include_once('Templates/menu.php');
   ?>
-
-  <div class="main-contenedor">
+  <main>
     <!-- SECCION DE LOGIN -->
-    <?php require 'Templates/header.php' ?>
+    <div class="biendenida">
+      <?php if (!empty($user)) : ?>
+        <br> Bienvenido. <?= $user['email']; ?>
+      <?php else : ?>
+        <h1>Por favor, inicia sesión o registrate</h1>
 
-    <?php if (!empty($user)) : ?>
-      <br> Bienvenido. <?= $user['email']; ?>
-    <?php else : ?>
-      <h1>Por favor, inicia sesión o registrate</h1>
-
-      <a href="login.php">Inicia sesión</a> ó
-      <a href="signup.php">Registrate</a>
-    <?php endif; ?>
+        <a href="login.php">Inicia sesión</a> ó
+        <a href="signup.php">Registrate</a>
+      <?php endif; ?>
+    </div>
 
     <!-- FIN DE SECCION DE LOGIN -->
 
     <!-- CATALOGOS DE PRODUCTOS  -->
-    <main>
-      <h2>Productos</h2>
+
+    <div class="card-container">
+      <h2>Productos destacados</h2>
       <br>
       <?php
       $response = json_decode(file_get_contents('http://localhost/burger_shop/api/productos/api-producto.php?categoria=hamburguesas'), true);
@@ -64,12 +63,9 @@ if (isset($_SESSION['user_id'])) {
         // mostrar error
       }
       ?>
-    </main>
-
-    <script type="text/javascript">
-      const toggleSidebar = () => document.body.classList.toggle('open');
-    </script>
-    <script src="Assets/JS/main.js"></script>
+    </div>
+  </main>
+  <script src="Assets/JS/main.js"></script>
 </body>
 
 </html>

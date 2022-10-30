@@ -29,16 +29,14 @@ if (isset($_SESSION['user_id'])) {
 </head>
 
 <body>
-
     <?php
-    include 'Templates/navbar.php';
+    include_once 'Templates/menu.php';
     ?>
     <div class="main-contenedor">
         <!-- SECCION DE LOGIN -->
-        <?php require 'Templates/header.php' ?>
 
         <?php if (!empty($user)) : ?>
-            <br> Bienvenido. <?= $user['email']; ?>
+            <br> Hola. <?= $user['email']; ?>
             <br>Has iniciado sesión
             <a href="/burger_shop/Lib/logout.php">
                 Cerrar sesión
@@ -52,10 +50,6 @@ if (isset($_SESSION['user_id'])) {
 
         <!-- FIN DE SECCION DE LOGIN -->
     </div>
-
-    <script type="text/javascript">
-        const toggleSidebar = () => document.body.classList.toggle('open');
-    </script>
 </body>
 
 </html>
