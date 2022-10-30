@@ -5,10 +5,10 @@ session_start();
 if (isset($_SESSION['user_id'])) {
   header('Location: /Burger_Shop/');
 }
-require 'Config/Connection/database.php';
+require 'Lib/Connection/dbUsuario.php';
 
 if (!empty($_POST['email']) && !empty($_POST['password'])) {
-  $records = $conn->prepare('SELECT idUsuario, email, password FROM usuarios WHERE email = :email');
+  $records = $conn->prepare('SELECT idUsuario, email, password FROM users WHERE email = :email');
   $records->bindParam(':email', $_POST['email']);
   $records->execute();
   $results = $records->fetch(PDO::FETCH_ASSOC);

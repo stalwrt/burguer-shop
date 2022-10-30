@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-require 'Lib/Connection/db.php';
+require 'Lib/Connection/dbUsuario.php';
 
 if (isset($_SESSION['user_id'])) {
-  $records = $conn->prepare('SELECT idUsuario, email, password FROM usuarios WHERE idUsuario = :idUsuario');
+  $records = $conn->prepare('SELECT idUsuario, email, password FROM users WHERE idUsuario = :idUsuario');
   $records->bindParam(':idUsuario', $_SESSION['user_id']);
   $records->execute();
   $results = $records->fetch(PDO::FETCH_ASSOC);
@@ -29,8 +29,8 @@ if (isset($_SESSION['user_id'])) {
 <body>
 
   <?php
-  include 'Lib/Connection/db.php';
-  // include 'Templates/navbar.php';
+  include 'Lib/Connection/dbUsuario.php';
+  //* include 'Templates/navbar.php';
   include_once('Templates/menu.php');
   ?>
 
