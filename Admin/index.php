@@ -14,7 +14,8 @@ include "Connection/db.php";
 
 <body>
     <h1>Productos</h1>
-    <form action="agregar.php" method="post" enctype="multipart/form-data">
+    <!-- quité temporalmente la accion ruta para pruebas  -->
+    <form action="" method="post" enctype="multipart/form-data">
         <!-- required es para que se tengan que llenar los campos si o si  -->
         <label for="">Ingresa el nombre del producto</label>
         <input type="text" name="nombre" required>
@@ -46,12 +47,12 @@ include "Connection/db.php";
             $imagenSubida = fopen($_FILES['foto']['tmp_name'], 'r');
             $binariosImagen = fread($imagenSubida, $tamanoArchivo);
             include_once 'Connection/db.php';
-            $con = mysqli_connect("localhost", "root", "", "burgerbistro");
-            $binariosImagen = mysqli_escape_string($con, $binariosImagen);
+            $mysqli = mysqli_connect("localhost", "root", "", "burgerbistro");
+            $binariosImagen = mysqli_escape_string($mysqli, $binariosImagen);
 
             $query = "INSERT INTO productos (id, nombre, descripcion, precio, nombreImg, img, tipoImg) VALUES (null,'$nombre','$descripcion','$precio','$nombreArchivo','$binariosImagen','$tipoArchivo')";
 
-            $res = mysqli_query($con, $query);
+            $res = mysqli_query($mysqli, $query);
             if ($res) {
                 echo '<script>window.alert("Se ha actualizado correctamente");</script>';
             } else {
@@ -61,10 +62,10 @@ include "Connection/db.php";
     }
 
     $query = ("SELECT nombreImg, img, tipoImg FROM productos");
-    $res = mysqli_query($con, $query);
+    $res = mysqli_query($mysqli, $query);
     while ($row = mysqli_fetch_array($res)) {
     ?>
-        <form method="post" enctype="multipart/form-data">
+        <!-- <form method="post" enctype="multipart/form-data">
             <div class="text-center">
                 <img src="data:image/<?php echo $row['tipoimg'] ?>;base64,<?php echo base64_encode($row['img']) ?>" class="avatar img-circle img-thumbnail" alt="avatar" style="border-radius: 50%;">
                 <h6>sube una foto diferente...</h6>
@@ -74,7 +75,7 @@ include "Connection/db.php";
 
                 <button class="btn btn-lg btn-success" name="guardarFoto" type="submit"><i class="glyphicon glyphicon-ok-sign"></i>Guardar foto</button>
             </div>
-        </form>
+        </form> -->
 
         </hr><br>
     <?php

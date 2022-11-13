@@ -34,14 +34,16 @@ if (isset($_SESSION['user_id'])) {
   ?>
   <main>
     <!-- SECCION DE LOGIN -->
-    <div class="biendenida">
+    <div id="bienvenida">
       <?php if (!empty($user)) : ?>
-        <br> Bienvenido. <?= $user['email']; ?>
+        <br>
+        <h2>
+          Bienvenido/a <?= $user['email']; ?>!
+        </h2>
       <?php else : ?>
-        <h1>Por favor, inicia sesión o registrate</h1>
-
-        <a href="login.php">Inicia sesión</a> ó
-        <a href="signup.php">Registrate</a>
+        <h2>Por favor, inicia sesión o registrate</h2>
+        <a href="usuario.php">Inicia sesión</a> ó
+        <a href="usuario.php">Registrate</a>
       <?php endif; ?>
     </div>
 
@@ -65,6 +67,8 @@ if (isset($_SESSION['user_id'])) {
       ?>
     </div>
   </main>
+
+  <?php include_once('Templates/footer.php'); ?>
   <script src="Assets/JS/main.js"></script>
 </body>
 

@@ -11,7 +11,7 @@
 
 <body>
 	<?php
-	include 'Templates/navbar.php';
+	include 'Templates/menu.php';
 	?>
 
 	<div class="main-contenedor">

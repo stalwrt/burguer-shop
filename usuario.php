@@ -32,23 +32,23 @@ if (isset($_SESSION['user_id'])) {
     <?php
     include_once 'Templates/menu.php';
     ?>
-    <div class="main-contenedor">
+    <div id="bienvenida">
         <!-- SECCION DE LOGIN -->
 
         <?php if (!empty($user)) : ?>
-            <br> Hola. <?= $user['email']; ?>
-            <br>Has iniciado sesión
-            <a href="/burger_shop/Lib/logout.php">
-                Cerrar sesión
-            </a>
-        <?php else : ?>
-            <h1>Por favor, inicia sesión o registrate</h1>
+            <h2>Hola. <?= $user['email']; ?>
+                <br>Has iniciado sesión
+                <a href="Lib/logout.php">
+                    Cerrar sesión
+                </a>
+            <?php else : ?>
+                <h2>Bienvenido, por favor elige una de las siguientes opciones:</h2>
 
-            <a href="login.php">Inicia sesión</a> ó
-            <a href="signup.php">Registrate</a>
-        <?php endif; ?>
+                <a href="login.php">Iniciar sesión</a> ó
+                <a href="signup.php">Registrarse</a>
+            <?php endif; ?>
 
-        <!-- FIN DE SECCION DE LOGIN -->
+            <!-- FIN DE SECCION DE LOGIN -->
     </div>
 </body>
 

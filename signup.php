@@ -31,13 +31,13 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
 
 <body>
 
-  <!-- <?php require 'Templates/header.php' ?> -->
+  <?php require 'Templates/menu.php' ?>
 
   <?php if (!empty($message)) : ?>
     <p> <?= $message ?></p>
   <?php endif; ?>
 
-  <div class="login_box">
+  <!-- <div class="login_box">
     <div class="left">
       <div class="top_link"><a href="/burger_shop/"><img src="https://drive.google.com/u/0/uc?id=16U__U5dJdaTfNGobB_OpwAJ73vM50rPV&export=download" alt="">Regresar al inicio</a></div>
       <div class="contact">
@@ -60,7 +60,29 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
       <div class="right-inductor"><img src="" alt=""></div>
     </div>
   </div>
-  </section>
+  </section> -->
+
+  <main class="content-login">
+    <div class="login-card">
+      <h2>Registro</h2>
+      <form class="login-form" action="signup.php" method="POST">
+        <input class="control" type="text" placeholder="Email" name="email">
+
+        <div class="password">
+          <input class="control" id="password" type="password" placeholder="Contraseña" name="password">
+          <button class="toggle" type="button" onclick="togglePassword(this)"></button>
+
+          <input class="control password2" id="password" type="password" placeholder="Confirma tu contraseña" name="confirm_password">
+          <button class="toggle" type="button" onclick="togglePassword(this)"></button>
+        </div>
+
+        <button class="control" type="submit">Enviar</button>
+        <h3>¿Ya tienes una cuenta?, <a href="login.php">Inicia sesión</a></h3>
+      </form>
+    </div>
+  </main>
+
+  <script src="Assets/JS/main.js"></script>
 
 </body>
 

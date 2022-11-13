@@ -31,7 +31,7 @@ if (isset($_GET['action'])) {
 function mostrar($carrito)
 {
     //+ cargar el arreglo en la sesión
-    //+ consultar la base de datos para acutalizar los valores de los productos
+    //+ consultar la base de datos para actualizar los valores de los productos
 
     $itemsCarrito = json_decode($carrito->load(), 1);
     $fullItems = [];

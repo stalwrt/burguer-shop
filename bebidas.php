@@ -15,17 +15,22 @@
     ?>
 
     <main>
-        <?php
-        $response = json_decode(file_get_contents('http://localhost/burger_shop/api/productos/api-producto.php?categoria=bebidas'), true);
 
-        if ($response['statuscode'] == 200) {
-            foreach ($response['items'] as $item) {
-                include('Templates/items.php');
+        <div class="card-container">
+            <h2>Bebidas</h2>
+            <br>
+            <?php
+            $response = json_decode(file_get_contents('http://localhost/burger_shop/api/productos/api-producto.php?categoria=bebidas'), true);
+
+            if ($response['statuscode'] == 200) {
+                foreach ($response['items'] as $item) {
+                    include('Templates/items.php');
+                }
+            } else {
+                // mostrar error
             }
-        } else {
-            // mostrar error
-        }
-        ?>
+            ?>
+        </div>
     </main>
 
 </body>

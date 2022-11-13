@@ -20,7 +20,9 @@ class Productos extends DB
             'nombre'        => $row['nombre'],
             'descripcion'   => $row['descripcion'],
             'precio'        => $row['precio'],
-            'imagen'        => $row['imagen'],
+            'nombreImg'     => $row['nombreImg'],
+            'img'           => $row['img'],
+            'tipoImg'       => $row['tipoImg'],
             'categoria'     => $row['categoria'],
         ];
     }
@@ -31,14 +33,17 @@ class Productos extends DB
         $query->execute(['cat' => $category]);
 
         $items = [];
+
         while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
             $item = [
                 'id'            => $row['id'],
                 'nombre'        => $row['nombre'],
                 'descripcion'   => $row['descripcion'],
                 'precio'        => $row['precio'],
-                'imagen'        => $row['imagen'],
-                'categoria'             => $row['categoria'],
+                'nombreImg'     => $row['nombreImg'],
+                'img'           => $row['img'],
+                'tipoImg'       => $row['tipoImg'],
+                'categoria'     => $row['categoria'],
             ];
 
             array_push($items, $item);

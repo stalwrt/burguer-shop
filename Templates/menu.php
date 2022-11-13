@@ -1,6 +1,6 @@
 <nav class="menu-top">
     <ul>
-        <li><a href="/burger_shop/">Inicio</a></li>
+        <li><a href="index.php">Inicio</a></li>
         <li><a href="usuario.php">Usuario</a></li>
         <li><a href="index.php">Hamburguesas</a></li>
         <li><a href="bebidas.php">Bebidas</a></li>
