@@ -1,7 +1,7 @@
 <div class="card">
     <input type="hidden" id="id" value="<?php echo $item['id']; ?>">
     <div class="imagen">
-        <img src="Images/<?php echo $item['img']; ?>">
+        <img src="data:image/<?php echo $row['tipoimg'] ?>;base64,<?php echo base64_encode($row['img']) ?>">
     </div>
     <div class="contenido">
         <h3><?php echo $item['nombre']; ?></h3>

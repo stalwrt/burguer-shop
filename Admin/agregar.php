@@ -1,103 +1,83 @@
-<?php
-//include "Connection/db.php";
+<!DOCTYPE html>
+<html lang="es">
 
-//$nombre = $mysqli->real_escape_string($_POST['nombre']);
-//$descripcion = $mysqli->real_escape_string($_POST['descripcion']);
-//$precio = $mysqli->real_escape_string($_POST['precio']);
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
 
-// $query = "INSERT INTO productos (id, nombre, descripcion, precio, imagen) VALUES (null,'$nombre','$descripcion','$precio','$ruta')";
+<body>
+    <?php
 
-//= --------------------------------------------------------------------------
-// if (isset($_REQUEST['Enviar'])) {
-//     if ($_FILES['foto']['name']) {
-//         $tipoArchivo = $_FILES['foto']['type'];
-//         $nombreArchivo = $_FILES['foto']['name'];
-//         $tamanoArchivo = $_FILES['foto']['size'];
-//         $imagenSubida = fopen($_FILES['foto']['tmp_name'], 'r');
-//         $binariosImagen = fread($imagenSubida, $tamanoArchivo);
-//         include_once 'Connection/db.php';
-//         $con = mysqli_connect("localhost", "root", "", "burgerbistro");
-//         $binariosImagen = mysqli_escape_string($con, $binariosImagen);
+    if (isset($_POST['enviar'])) {
+        $nombre = $_POST['nombre'];
+        $descripcion = $_POST['descripcion'];
+        $precio = $_POST['precio'];
+        $categoria = $_POST['categoria'];
 
-//         //| poner la condicion del id del producto 
-//         $query = ("UPDATE productos SET nombreImg='" . $nombreArchivo . "', img='" . $binariosImagen . "', tipoImg='" . $tipoArchivo);
+        include("Connection/db.php");
 
-//         $res = mysqli_query($con, $query);
-//         if ($res) {
-//             echo '<script>window.alert("Se ha actualizado la imagen");</script>';
-//         } else {
-//             echo '<script>window.alert("No se ha actualizado la imagen");</script>';
-//         }
-//     }
-// }
+        //° INSERT INTO PRODUCTOS
+        $sql = "INSERT INTO productos (nombre, descripcion, precio, categoria) VALUES ('" . $nombre . "','" . $descripcion . "','" . $precio . "', '" . $categoria . "')";
 
-// include_once 'Connection/db.php';
-// $con = mysqli_connect("localhost", "root", "", "burgerbistro");
+        $resultado = mysqli_query($mysqli, $sql);
 
-//| poner la condicion del id del producto 
-// $query = ("SELECT nombreimg, img, tipoimg FROM productos WHERE IdUsuario = '" . $_SESSION['s_IdUsuario'] . "' ");
-// $res = mysqli_query($con, $query);
-// while ($row = mysqli_fetch_array($res)) {
+        if ($resultado) {
+            // Los datos ingresaron a la base de datos 
+            echo
+            "<script language='JavaScript'>
+                window.alert('Los datos fueron ingresados correctamente a la Base de Datos');
+            </script> 
 
-
-// $mysqli->query($query);
-
-// $mysqli->close();
-
-// ------------------------------------
-
-if (isset($_REQUEST['Enviar'])) {
-
-    $nombre = $mysqli->real_escape_string($_POST['nombre']);
-    $descripcion = $mysqli->real_escape_string($_POST['descripcion']);
-    $precio = $mysqli->real_escape_string($_POST['precio']);
-
-    if ($_FILES['foto']['name']) {
-        $tipoArchivo = $_FILES['foto']['type'];
-        $nombreArchivo = $_FILES['foto']['name'];
-        $tamanoArchivo = $_FILES['foto']['size'];
-        $imagenSubida = fopen($_FILES['foto']['tmp_name'], 'r');
-        $binariosImagen = fread($imagenSubida, $tamanoArchivo);
-        include_once 'Connection/db.php';
-        $mysqli = mysqli_connect("localhost", "root", "", "burgerbistro");
-        $binariosImagen = mysqli_escape_string($mysqli, $binariosImagen);
-
-        $query = "INSERT INTO productos (id, nombre, descripcion, precio, nombreImg, img, tipoImg) VALUES (null,'$nombre','$descripcion','$precio','$nombreArchivo','$binariosImagen','$tipoArchivo')";
-
-        $res = mysqli_query($mysqli, $query);
-        if ($res) {
-            echo '<script>window.alert("Se ha actualizado correctamente");</script>';
+            location.assign('index.php');";
         } else {
-            echo '<script>window.alert("Ups, no se ha actualizado");</script>';
+            // Los datos NO ingresaron a la base de datos 
+            echo
+            "<script language='JavaScript'>
+                window.alert('ERROR: Los datos NO fueron ingresados a la Base de Datos');
+            </script> 
+
+            location.assign('index.php');";
         }
+
+        mysqli_close($mysqli);
+    } else {
+    ?>
+
+        <h1>Agregar nuevo productos</h1>
+        <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
+            <label for="">Nombre del producto</label>
+            <input type="text" name="nombre" placeholder="Ingresa el nombre">
+
+            <br>
+
+            <label for="">Descripción del producto</label>
+            <input type="text" name="descripcion" placeholder="Ingresa la descripción">
+
+            <br>
+
+            <label for="">Precio del producto</label>
+            <input type="text" name="precio" placeholder="Ingresa el precio">
+
+            <br>
+
+            <label for="">Categoria del producto</label>
+            <select name="categoria" id="">
+                <option value="hamburguesas">Hamburguesa</option>
+                <option value="bebidas">Bebida</option>
+            </select>
+
+            <input type="submit" name="enviar" value="Agregar">
+
+            <a href="index.php">Regresar</a>
+        </form>
+
+    <?php
     }
-}
+    ?>
+</body>
 
-$query = ("SELECT nombreImg, img, tipoImg FROM productos");
-$res = mysqli_query($mysqli, $query);
-while ($row = mysqli_fetch_array($res)) {
-?>
-    <!-- <form method="post" enctype="multipart/form-data">
-            <div class="text-center">
-                <img src="data:image/<?php echo $row['tipoimg'] ?>;base64,<?php echo base64_encode($row['img']) ?>" class="avatar img-circle img-thumbnail" alt="avatar" style="border-radius: 50%;">
-                <h6>sube una foto diferente...</h6>
-                <input type="file" class="text-center center-block file-upload" name="foto">
-                <br>
-                <hr>
-
-                <button class="btn btn-lg btn-success" name="guardarFoto" type="submit"><i class="glyphicon glyphicon-ok-sign"></i>Guardar foto</button>
-            </div>
-        </form> -->
-
-    </hr><br>
-<?php
-}
-?>
-
-<?php
-
-$mysqli->query($query);
-
-$mysqli->close();
-
-?>
+</html>

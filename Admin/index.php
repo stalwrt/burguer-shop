@@ -1,7 +1,3 @@
-<?php
-include "Connection/db.php";
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,85 +5,66 @@ include "Connection/db.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Administración</title>
+    <script type="text/javascript">
+        function confirmar() {
+            return confirm('¿Estás seguro?, se eliminarán los datos de la base de datos');
+        }
+    </script>
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 
 <body>
-    <h1>Productos</h1>
-    <!-- quité temporalmente la accion ruta para pruebas  -->
-    <form action="" method="post" enctype="multipart/form-data">
-        <!-- required es para que se tengan que llenar los campos si o si  -->
-        <label for="">Ingresa el nombre del producto</label>
-        <input type="text" name="nombre" required>
-        <br>
-        <label for="">Ingresa la descripción</label>
-        <input type="text" name="descripcion" required>
-        <br>
-        <label for="">Ingresa el precio</label>
-        <input type="text" name="precio" required>
-        <br>
-        <label for="">Seleccione la imagen que desea subir</label>
-        <input type="file" name="foto" required>
-        <br>
-        <input type="submit" value="Enviar">
-    </form>
-
     <?php
 
-    if (isset($_REQUEST['Enviar'])) {
+    include("Connection/db.php");
 
-        $nombre = $mysqli->real_escape_string($_POST['nombre']);
-        $descripcion = $mysqli->real_escape_string($_POST['descripcion']);
-        $precio = $mysqli->real_escape_string($_POST['precio']);
+    $sql = "SELECT *  FROM productos";
+    $resultado = mysqli_query($mysqli, $sql);
+    ?>
 
-        if ($_FILES['foto']['name']) {
-            $tipoArchivo = $_FILES['foto']['type'];
-            $nombreArchivo = $_FILES['foto']['name'];
-            $tamanoArchivo = $_FILES['foto']['size'];
-            $imagenSubida = fopen($_FILES['foto']['tmp_name'], 'r');
-            $binariosImagen = fread($imagenSubida, $tamanoArchivo);
-            include_once 'Connection/db.php';
-            $mysqli = mysqli_connect("localhost", "root", "", "burgerbistro");
-            $binariosImagen = mysqli_escape_string($mysqli, $binariosImagen);
+    <h1>Lista de productos</h1>
 
-            $query = "INSERT INTO productos (id, nombre, descripcion, precio, nombreImg, img, tipoImg) VALUES (null,'$nombre','$descripcion','$precio','$nombreArchivo','$binariosImagen','$tipoArchivo')";
+    <a href="agregar.php" id="nuevo">Nuevo producto</a>
 
-            $res = mysqli_query($mysqli, $query);
-            if ($res) {
-                echo '<script>window.alert("Se ha actualizado correctamente");</script>';
-            } else {
-                echo '<script>window.alert("Ups, no se ha actualizado");</script>';
+    <br>
+    <br>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Categoria</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            while ($filas = mysqli_fetch_assoc($resultado)) {
+            ?>
+                <tr>
+                    <td><?php echo $filas['id'] ?></td>
+                    <td><?php echo $filas['nombre'] ?></td>
+                    <td><?php echo $filas['descripcion'] ?></td>
+                    <td><?php echo $filas['precio'] ?></td>
+                    <td><?php echo $filas['categoria'] ?></td>
+                    <td>
+                        <?php echo "<a href='editar.php?id=" . $filas['id'] . "'>EDITAR</a>"; ?>
+                        -
+                        <?php echo "<a href='eliminar.php?id=" . $filas['id'] . "' onclick='return confirmar()'>ELIMINAR</a>"; ?>
+                    </td>
+                </tr>
+            <?php
             }
-        }
-    }
-
-    $query = ("SELECT nombreImg, img, tipoImg FROM productos");
-    $res = mysqli_query($mysqli, $query);
-    while ($row = mysqli_fetch_array($res)) {
-    ?>
-        <!-- <form method="post" enctype="multipart/form-data">
-            <div class="text-center">
-                <img src="data:image/<?php echo $row['tipoimg'] ?>;base64,<?php echo base64_encode($row['img']) ?>" class="avatar img-circle img-thumbnail" alt="avatar" style="border-radius: 50%;">
-                <h6>sube una foto diferente...</h6>
-                <input type="file" class="text-center center-block file-upload" name="foto">
-                <br>
-                <hr>
-
-                <button class="btn btn-lg btn-success" name="guardarFoto" type="submit"><i class="glyphicon glyphicon-ok-sign"></i>Guardar foto</button>
-            </div>
-        </form> -->
-
-        </hr><br>
-    <?php
-    }
-    ?>
+            ?>
+        </tbody>
+    </table>
 
     <?php
-
-    $mysqli->query($query);
-
-    $mysqli->close();
-
+    mysqli_close($mysqli);
     ?>
 </body>
 
