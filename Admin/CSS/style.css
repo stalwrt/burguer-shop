@@ -81,3 +81,7 @@ input[type='submit']:hover {
 #nuevo {
 	display: inline-block;
 }
+
+.caja {
+	margin: 0px 20%;
+}

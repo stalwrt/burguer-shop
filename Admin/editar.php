@@ -59,41 +59,44 @@ include("Connection/db.php");
 
         mysqli_close($mysqli);
     ?>
-        <h1>Editar producto</h1>
+        <div class="caja">
+            <h1>Editar producto</h1>
 
-        <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
-            <label for="">Nombre</label>
-            <input type="text" name="nombre" value="<?php echo $nombre; ?>" placeholder="Nuevo nombre">
+            <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
+                <label for="">Nombre</label>
+                <input type="text" name="nombre" value="<?php echo $nombre; ?>" placeholder="Nuevo nombre">
 
-            <br>
+                <br>
 
-            <label for="">Descripcion</label>
-            <input type="text" name="descripcion" value="<?php echo $descripcion; ?>" placeholder="Nueva descripción">
+                <label for="">Descripcion</label>
+                <input type="text" name="descripcion" value="<?php echo $descripcion; ?>" placeholder="Nueva descripción">
 
-            <br>
+                <br>
 
-            <label for="">Precio</label>
-            <input type="text" name="precio" value="<?php echo $precio; ?>" placeholder="Nuevo precio">
+                <label for="">Precio</label>
+                <input type="text" name="precio" value="<?php echo $precio; ?>" placeholder="Nuevo precio">
 
-            <br>
+                <br>
 
-            <label for="">Categoria</label>
-            <select name="categoria" id="">
-                <option value="<?php echo $categoria; ?>"></option> <!-- No estoy seguro de si debe ir este echo o no  -->
-                <!-- Creo que no es necesario, solo es para llenar el campo y saber que categoria es, pero de todas formas lo dejo  -->
-                <!-- YA CONFIRMÉ DE QUE FUNCIONA, ASI QUE MEJOR NO TOCO NADA  -->
-                <option value="hamburguesas">Hamburguesa</option>
-                <option value="bebidas">Bebida</option>
-            </select>
+                <label for="">Categoria</label>
+                <select name="categoria" id="">
+                    <option value="<?php echo $categoria; ?>"></option> <!-- No estoy seguro de si debe ir este echo o no  -->
+                    <!-- Creo que no es necesario, solo es para llenar el campo y saber que categoria es, pero de todas formas lo dejo  -->
+                    <!-- YA CONFIRMÉ DE QUE FUNCIONA, ASI QUE MEJOR NO TOCO NADA  -->
+                    <option value="hamburguesas">Hamburguesa</option>
+                    <option value="bebidas">Bebida</option>
+                </select>
 
-            <br>
+                <br>
 
-            <input type="hidden" name="id" value="<?php echo $id; ?>">
+                <input type="hidden" name="id" value="<?php echo $id; ?>">
 
-            <input type="submit" value="ACTUALIZAR" name="enviar">
+                <input type="submit" value="ACTUALIZAR" name="enviar">
 
-            <a href="index.php">Regresar</a>
-        </form>
+                <a href="index.php">Regresar</a>
+            </form>
+
+        </div>
 
     <?php
     }

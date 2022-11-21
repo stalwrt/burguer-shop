@@ -23,45 +23,48 @@
     $resultado = mysqli_query($mysqli, $sql);
     ?>
 
-    <h1>Lista de productos</h1>
+    <div class="caja">
+        <h1>Lista de productos</h1>
 
-    <a href="agregar.php" id="nuevo">Nuevo producto</a>
+        <a href="agregar.php" id="nuevo">Nuevo producto</a>
 
-    <br>
-    <br>
+        <br>
+        <br>
 
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Precio</th>
-                <th>Categoria</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            while ($filas = mysqli_fetch_assoc($resultado)) {
-            ?>
+        <table>
+            <thead>
                 <tr>
-                    <td><?php echo $filas['id'] ?></td>
-                    <td><?php echo $filas['nombre'] ?></td>
-                    <td><?php echo $filas['descripcion'] ?></td>
-                    <td><?php echo $filas['precio'] ?></td>
-                    <td><?php echo $filas['categoria'] ?></td>
-                    <td>
-                        <?php echo "<a href='editar.php?id=" . $filas['id'] . "'>EDITAR</a>"; ?>
-                        -
-                        <?php echo "<a href='eliminar.php?id=" . $filas['id'] . "' onclick='return confirmar()'>ELIMINAR</a>"; ?>
-                    </td>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Categoria</th>
+                    <th>Acciones</th>
                 </tr>
-            <?php
-            }
-            ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php
+                while ($filas = mysqli_fetch_assoc($resultado)) {
+                ?>
+                    <tr>
+                        <td><?php echo $filas['id'] ?></td>
+                        <td><?php echo $filas['nombre'] ?></td>
+                        <td><?php echo $filas['descripcion'] ?></td>
+                        <td><?php echo $filas['precio'] ?></td>
+                        <td><?php echo $filas['categoria'] ?></td>
+                        <td>
+                            <?php echo "<a href='editar.php?id=" . $filas['id'] . "'>EDITAR</a>"; ?>
+                            -
+                            <?php echo "<a href='eliminar.php?id=" . $filas['id'] . "' onclick='return confirmar()'>ELIMINAR</a>"; ?>
+                        </td>
+                    </tr>
+                <?php
+                }
+                ?>
+            </tbody>
+        </table>
+
+    </div>
 
     <?php
     mysqli_close($mysqli);
