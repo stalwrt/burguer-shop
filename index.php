@@ -15,6 +15,16 @@ if (isset($_SESSION['user_id'])) {
     $user = $results;
   }
 }
+//* CÓDIGO PARA VER PRODUCTOS 
+require 'Lib/Connection/database.php';
+
+$db = new DB();
+$con = $db->connect();
+
+// No trae a la descripcion porque esa se llamará en los detalles del producto 
+$sql = $con->prepare("SELECT id, nombre, precio FROM productos");
+$sql->execute();
+$resultado = $sql->fetchAll(PDO::FETCH_ASSOC); // Llama a todos los productos que estén en está tabla
 ?>
 
 <!DOCTYPE html>
@@ -55,14 +65,21 @@ if (isset($_SESSION['user_id'])) {
       <h2>Productos destacados</h2>
       <br>
       <?php
-      $response = json_decode(file_get_contents('http://localhost/burger_shop/api/productos/api-producto.php?categoria=hamburguesas'), true);
-
-      if ($response['statuscode'] == 200) {
-        foreach ($response['items'] as $item) {
-          include('Templates/items.php');
-        }
-      } else {
-        // mostrar error
+      foreach ($resultado as $row) {
+      ?>
+        <div class="card">
+          <input type="hidden" id="id" value="<?php echo $row['id']; ?>">
+          <div class="imagen">
+            <img src="">
+          </div>
+          <div class="contenido">
+            <h3><?php echo $row['nombre']; ?></h3>
+            <span>$<?php echo $row['precio']; ?> MXN</span>
+            <br>
+            <button class="btn-add">Agregar al carrito</button>
+          </div>
+        </div>
+      <?php
       }
       ?>
     </div>
