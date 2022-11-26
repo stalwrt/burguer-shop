@@ -3,7 +3,7 @@
 }
 
 body {
-	background-color: #c8d6e5;
+	background-color: #f5f6fa;
 }
 
 table {
@@ -24,7 +24,7 @@ tr:nth-child(even) {
 }
 
 th {
-	background-color: #27ae60;
+	background: #e67e22;
 	color: #fff;
 }
 

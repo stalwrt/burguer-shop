@@ -22,7 +22,7 @@ $db = new DB();
 $con = $db->connect();
 
 // No trae a la descripcion porque esa se llamará en los detalles del producto 
-$sql = $con->prepare("SELECT id, nombre, precio FROM productos");
+$sql = $con->prepare("SELECT id, nombre, descripcion, precio, imagen FROM productos");
 $sql->execute();
 $resultado = $sql->fetchAll(PDO::FETCH_ASSOC); // Llama a todos los productos que estén en está tabla
 ?>
@@ -60,24 +60,19 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC); // Llama a todos los productos qu
     <!-- FIN DE SECCION DE LOGIN -->
 
     <!-- CATALOGOS DE PRODUCTOS  -->
-
+    <h2 style="margin-left: 50px;">Productos destacados</h2>
     <div class="card-container">
-      <h2>Productos destacados</h2>
-      <br>
       <?php
       foreach ($resultado as $row) {
       ?>
         <div class="card">
           <input type="hidden" id="id" value="<?php echo $row['id']; ?>">
-          <div class="imagen">
-            <img src="">
-          </div>
-          <div class="contenido">
-            <h3><?php echo $row['nombre']; ?></h3>
-            <span>$<?php echo $row['precio']; ?> MXN</span>
-            <br>
-            <button class="btn-add">Agregar al carrito</button>
-          </div>
+          <img src="<?php echo $row['imagen'] ?>">
+          <h3><?php echo $row['nombre']; ?></h3>
+          <p><?php echo $row['descripcion'] ?></p>
+          <span>$<?php echo $row['precio']; ?> MXN</span>
+          <br>
+          <button class="btn-add">Comprar ahora</button>
         </div>
       <?php
       }
