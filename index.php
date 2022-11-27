@@ -72,7 +72,8 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC); // Llama a todos los productos qu
           <p><?php echo $row['descripcion'] ?></p>
           <span>$<?php echo $row['precio']; ?> MXN</span>
           <br>
-          <button class="btn-add">Comprar ahora</button>
+          <!-- <?php echo "<a href='producto.php'?id=" . $row['id'] . ">Comprar</a>" ?> -->
+          <button class="btn-add" onclick="location.href='generadorQR.php'">Comprar ahora</button>
         </div>
       <?php
       }
