@@ -66,7 +66,7 @@ div {
 	width: 100%;
 	height: 56px;
 	padding: 0 16px;
-	background: #edeaf7;
+	background: #ccc;
 	color: #000;
 	font-family: inherit;
 	font-size: 16px;
@@ -74,17 +74,15 @@ div {
 }
 
 /* para que el segundo input no choque con el primero  */
-.password2 {
+/* .password2 {
 	margin-top: 10px;
-}
+} */
 
 .login-card {
 	width: 400px;
 	padding: 100px 30px 64px;
 	border-radius: 1.25rem;
 	text-align: center;
-	background: #dfe6e9;
-	border: 1px solid black;
 }
 
 .login-card > h2 {
