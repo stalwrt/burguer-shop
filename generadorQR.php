@@ -19,11 +19,39 @@
 	?>
 	<div class="contenedor">
 		<form action="" id="formulario" class="formulario">
-			<input type="text" id="link" placeholder="Escribe tu nombre" />
+			<label for="">Escribe tu nombre para recoger tu pedido</label>
+			<br>
+			<input type="text" id="link" placeholder="Ingresa tu nombre" />
 			<button class="btn">Generar QR</button>
 		</form>
 
 		<div id="contenedorQR" class="contenedorQR"></div>
+		<p>Tú número de pedido es el:
+			<?php
+			function shuffle_nums($min, $max, $count)
+			{
+				$nums = range($min, $max);
+				shuffle($nums);
+
+				$response = array();
+				for ($i = 0; $i < $count && $i < count($nums); $i++) {
+					array_push($response, $nums[$i]);
+				}
+
+				$a = $response;
+
+				return $response;
+			}
+
+			echo "<bold>";
+			print_r(shuffle_nums(2000, 3000, 1));
+			echo "</bold>"
+			?></p>
+		<br>
+		<hr>
+		<p>
+			Escanea esté código QR en tiendas fisicas para pagar y recoger tu pedido.
+		</p>
 	</div>
 </body>
 
