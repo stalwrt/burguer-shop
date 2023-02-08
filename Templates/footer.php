@@ -1,9 +1,8 @@
 <footer>
-    <h3>Desarrollo e implementación</h3>
-    <h4>Equipo 4</h4>
+    <h3>Programación Multiplataforma</h3>
+    <h4>Equipo 7</h4>
     <ul>
-        <li>Andrea Lizeth</li>
-        <li>Leonardo Azael</li>
+        <li><a href="Admin/index.php" style="color:#fff">Leonardo Azael</a></li>
     </ul>
     <p>Derechos reservados | Tecnologico de Comitan</p>
 </footer>

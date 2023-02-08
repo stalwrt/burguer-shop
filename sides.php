@@ -5,8 +5,7 @@ require 'Lib/Connection/database.php';
 $db = new DB();
 $con = $db->connect();
 
-// No trae a la descripcion porque esa se llamará en los detalles del producto 
-$sql = $con->prepare("SELECT id, nombre, descripcion, precio, imagen FROM productos WHERE categoria='bebidas'");
+$sql = $con->prepare("SELECT id, nombre, descripcion, precio, imagen FROM productos WHERE categoria='sides'");
 $sql->execute();
 $resultado = $sql->fetchAll(PDO::FETCH_ASSOC); // Llama a todos los productos que estén en está tabla
 ?>
@@ -28,12 +27,12 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC); // Llama a todos los productos qu
     <main>
 
         <!-- CATALOGOS DE PRODUCTOS  -->
-        <h2>Bebidas</h2>
+        <h2>Sides</h2>
         <div>
             <?php
             foreach ($resultado as $row) {
             ?>
-                <div>
+                <div class="card">
                     <input type="hidden" id="id" value="<?php echo $row['id']; ?>">
                     <img src="<?php echo $row['imagen'] ?>">
                     <h3><?php echo $row['nombre']; ?></h3>

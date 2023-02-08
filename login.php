@@ -19,7 +19,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
     $_SESSION['user_id'] = $results['idUsuario'];
     header("Location: index.php");
   } else {
-    $message = 'Sorry, those credentials do not match';
+    $message = '<h2 style="color:red;">Las credenciales no coindicen</h2>';
   }
 }
 
@@ -31,8 +31,6 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
 <head>
   <meta charset="utf-8">
   <title>Bistro Online | Login</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
@@ -42,15 +40,15 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
     <p> <?= $message ?></p>
   <?php endif; ?>
 
-  <main class="content-login">
-    <div class="login-card">
+  <main>
+    <div>
       <h2>Login</h2>
-      <form class="login-form" action="login.php" method="POST">
-        <input class="control" type="text" placeholder="Email" name="email">
+      <form action="login.php" method="POST">
+        <input type="text" placeholder="Email" name="email">
 
-        <input class="control" id="password" type="password" placeholder="Contraseña" name="password">
+        <input id="password" type="password" placeholder="Contraseña" name="password">
 
-        <button class="control" type="submit">Enviar</button>
+        <button type="submit">Enviar</button>
         <h3>¿No tienes una cuenta?, <a href="signup.php">Crea una</a></h3>
       </form>
     </div>

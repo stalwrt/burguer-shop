@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agregar</title>
-    <link rel="stylesheet" href="CSS/style.css">
 </head>
 
 <body>
@@ -26,11 +25,14 @@
         $nombreIMG = $_FILES['imagen']['name']; // Obtiene el nombre del archivo
         $archivo = $_FILES['imagen']['tmp_name']; //Contiene el archivo
 
-        $ruta = "Images";
+        $ruta = "Admin/Images";
+        $ruta2 = "Images";
 
         $ruta = $ruta . "/" . $nombreIMG; // Images/nombre.jpg
+        $ruta2 = $ruta2 . "/" . $nombreIMG;
 
         move_uploaded_file($archivo, $ruta);
+        move_uploaded_file($archivo, $ruta2);
 
         //! FIN DE CODIGO PARA SUBIR IMAGEN 
 
@@ -82,6 +84,8 @@
                 <select name="categoria" id="" required>
                     <option value="hamburguesas">Hamburguesa</option>
                     <option value="bebidas">Bebida</option>
+                    <option value="alitas">Alitas</option>
+                    <option value="sides">Sides</option>
                 </select>
 
                 <br>

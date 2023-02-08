@@ -6,7 +6,7 @@ $db = new DB();
 $con = $db->connect();
 
 // No trae a la descripcion porque esa se llamará en los detalles del producto 
-$sql = $con->prepare("SELECT id, nombre, descripcion, precio, imagen FROM productos WHERE categoria='bebidas'");
+$sql = $con->prepare("SELECT id, nombre, descripcion, precio, imagen FROM productos WHERE categoria='alitas'");
 $sql->execute();
 $resultado = $sql->fetchAll(PDO::FETCH_ASSOC); // Llama a todos los productos que estén en está tabla
 ?>
@@ -17,7 +17,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC); // Llama a todos los productos qu
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bistro Online | Bebidas</title>
+    <title>Bistro Online | Alitas</title>
 </head>
 
 <body>
@@ -28,7 +28,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC); // Llama a todos los productos qu
     <main>
 
         <!-- CATALOGOS DE PRODUCTOS  -->
-        <h2>Bebidas</h2>
+        <h2>Alitas</h2>
         <div>
             <?php
             foreach ($resultado as $row) {

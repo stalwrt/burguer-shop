@@ -6,7 +6,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Bistro Online | Nosotros</title>
-	<link rel="stylesheet" href="Assets/CSS/style.css">
 </head>
 
 <body>
@@ -14,23 +13,27 @@
 	include 'Templates/menu.php';
 	?>
 
-	<div class="main-contenedor">
+	<div>
 		<h1>Sobre nosotros</h1>
 		<h2>Misión</h2>
 		<p>
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis sapiente obcaecati maxime veniam quo nobis ad laboriosam laborum iste iure quasi saepe quae aspernatur aliquam qui, pariatur explicabo reprehenderit assumenda.
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui quis laudantium necessitatibus. Minima fuga laborum maxime illum illo beatae. Fugiat ipsam minus at modi soluta laboriosam vel dolorum quod officia.
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat libero est deserunt quod corporis, sint, sequi quis, sapiente ducimus dolorum eius! Totam id saepe quo cupiditate aspernatur similique voluptate repellendus!
-			Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident enim nisi error, praesentium ullam quibusdam natus ex aliquid sint iure expedita odit labore, voluptatibus quam doloribus eveniet quod, officia vero!
+			“Brindar alimentos de alta calidad en un ambiente familiar y cálido.”
 		</p>
 		<hr>
 		<h2>Visión</h2>
 		<p>
-			Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident, quam ratione illum doloremque at minus similique assumenda itaque vitae repellat porro iure unde corrupti accusamus libero ipsam architecto fugit sequi?
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora consectetur nesciunt tenetur commodi voluptas facilis ratione dolore odio fuga incidunt cumque ab, odit possimus. Quidem placeat eaque veniam? Praesentium, autem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto est vero quasi sequi eaque atque aliquam porro neque impedit magni. Eos provident iusto fugit velit quisquam quos earum ratione minus.
+			“Ser una empresa líder en el servicio de comida rápida a nivel nacional, manteniendo altos estándares de calidad a nuestros clientes, cuidando el talento humano y relación con proveedores.”
 		</p>
+		<h2>Valores</h2>
+		<ul>
+			<li>Compromiso</li>
+			<li>Responsabilidad</li>
+			<li>Respeto</li>
+			<li>Honradez</li>
+		</ul>
 	</div>
 
+	<!-- no sé para que es este script  -->
 	<script type="text/javascript">
 		const toggleSidebar = () => document.body.classList.toggle('open');
 	</script>

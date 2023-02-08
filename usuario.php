@@ -25,7 +25,6 @@ if (isset($_SESSION['user_id'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bistro Online | Sesión</title>
-    <link rel="stylesheet" href="Assets/CSS/style.css">
 </head>
 
 <body>
@@ -36,8 +35,10 @@ if (isset($_SESSION['user_id'])) {
         <!-- SECCION DE LOGIN -->
 
         <?php if (!empty($user)) : ?>
-            <h2>Hola. <?= $user['email']; ?>
-                <br>Has iniciado sesión
+            <h2>Hola <?= $user['email']; ?>
+                <br>
+                Has iniciado sesión
+                <br>
                 <a href="Lib/logout.php">
                     Cerrar sesión
                 </a>

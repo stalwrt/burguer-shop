@@ -11,7 +11,6 @@
             return confirm('¿Estás seguro?, se eliminarán los datos de la base de datos');
         }
     </script>
-    <link rel="stylesheet" href="CSS/style.css">
 </head>
 
 <body>
@@ -65,6 +64,9 @@
         </table>
 
     </div>
+
+    <br>
+    <a href="../index.php">Ir al sitio web</a>
 
     <?php
     mysqli_close($mysqli);

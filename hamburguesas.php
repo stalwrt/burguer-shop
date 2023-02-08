@@ -18,7 +18,6 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC); // Llama a todos los productos qu
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bistro Online | Hamburguesas</title>
-    <link rel="stylesheet" href="Assets/CSS/style.css">
 </head>
 
 <body>
@@ -29,19 +28,19 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC); // Llama a todos los productos qu
     <main>
 
         <!-- CATALOGOS DE PRODUCTOS  -->
-        <h2 style="margin-left: 50px; margin-top: 20px;">Hamburguesas</h2>
-        <div class="card-container">
+        <h2>Hamburguesas</h2>
+        <div>
             <?php
             foreach ($resultado as $row) {
             ?>
-                <div class="card">
+                <div>
                     <input type="hidden" id="id" value="<?php echo $row['id']; ?>">
                     <img src="<?php echo $row['imagen'] ?>">
                     <h3><?php echo $row['nombre']; ?></h3>
                     <p><?php echo $row['descripcion'] ?></p>
                     <span>$<?php echo $row['precio']; ?> MXN</span>
                     <br>
-                    <button class="btn-add">Comprar ahora</button>
+                    <button>Comprar ahora</button>
                 </div>
             <?php
             }

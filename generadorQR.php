@@ -7,8 +7,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Generar QR</title>
 	<link rel="stylesheet" href="ASSETS/CSS/styleQR.css">
-	<!-- <script defer src="https: //cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==">
-	</script> -->
 	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 	<script defer src="Assets/JS/main.js"></script>
 </head>
@@ -26,7 +24,7 @@
 		</form>
 
 		<div id="contenedorQR" class="contenedorQR"></div>
-		<p>Tú número de pedido es el:
+		<p><b>Tú número de pedido es el:</b>
 			<?php
 			function shuffle_nums($min, $max, $count)
 			{
@@ -44,7 +42,7 @@
 			}
 
 			echo "<bold>";
-			print_r(shuffle_nums(2000, 3000, 1));
+			print_r(shuffle_nums(10, 150, 1));
 			echo "</bold>"
 			?></p>
 		<br>

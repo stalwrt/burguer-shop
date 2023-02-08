@@ -12,9 +12,9 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
   $stmt->bindParam(':password', $password);
 
   if ($stmt->execute()) {
-    $message = 'Successfully created new user';
+    $message = '<h2 style="color:blue;">Creación de usuario exitosa</h2>';
   } else {
-    $message = 'Sorry there must have been an issue creating your account';
+    $message = '<h2 style="color:red;">Lo sentimos, hubo un error al crear tu cuenta</h2>';
   }
 }
 ?>
@@ -24,8 +24,6 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
 <head>
   <meta charset="utf-8">
   <title>Bistro Online | Registro</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
@@ -36,21 +34,17 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
     <p> <?= $message ?></p>
   <?php endif; ?>
 
-  <main class="content-login">
-    <div class="login-card">
+  <main>
+    <div>
       <h2>Registro</h2>
-      <form class="login-form" action="signup.php" method="POST">
-        <input class="control" type="text" placeholder="Email" name="email">
+      <form action="signup.php" method="POST">
+        <input type="text" placeholder="Email" name="email">
 
-        <!-- <div class="password"> -->
-        <input class="control" id="password" type="password" placeholder="Contraseña" name="password">
-        <!-- <button class="toggle" type="button" onclick="togglePassword(this)"></button> -->
+        <input id="password" type="password" placeholder="Contraseña" name="password">
 
-        <input class="control password2" id="password" type="password" placeholder="Confirma tu contraseña" name="confirm_password">
-        <!-- <button class="toggle" type="button" onclick="togglePassword(this)"></button> -->
-        <!-- </div> -->
+        <input id="password" type="password" placeholder="Confirma tu contraseña" name="confirm_password">
 
-        <button class="control" type="submit">Enviar</button>
+        <button type="submit">Enviar</button>
         <h3>¿Ya tienes una cuenta?, <a href="login.php">Inicia sesión</a></h3>
       </form>
     </div>

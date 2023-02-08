@@ -21,8 +21,7 @@ require 'Lib/Connection/database.php';
 $db = new DB();
 $con = $db->connect();
 
-// No trae a la descripcion porque esa se llamará en los detalles del producto 
-$sql = $con->prepare("SELECT id, nombre, descripcion, precio, imagen FROM productos");
+$sql = $con->prepare("SELECT id, nombre, descripcion, precio, categoria, imagen FROM productos");
 $sql->execute();
 $resultado = $sql->fetchAll(PDO::FETCH_ASSOC); // Llama a todos los productos que estén en está tabla
 ?>
@@ -33,7 +32,6 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC); // Llama a todos los productos qu
 <head>
   <meta charset="utf-8">
   <title>Bistro Online | Inicio</title>
-  <link rel="stylesheet" href="assets/CSS/style.css">
 </head>
 
 <body>
@@ -51,29 +49,28 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC); // Llama a todos los productos qu
           Bienvenido/a <?= $user['email']; ?>!
         </h2>
       <?php else : ?>
-        <h2>Por favor, inicia sesión o registrate</h2>
-        <a href="usuario.php">Inicia sesión</a> ó
-        <a href="usuario.php">Registrate</a>
+        <h2>Por favor, <a href="usuario.php">inicia sesión o registrate</a></h2>
       <?php endif; ?>
     </div>
 
     <!-- FIN DE SECCION DE LOGIN -->
 
     <!-- CATALOGOS DE PRODUCTOS  -->
-    <h2 style="margin-left: 50px;">Productos destacados</h2>
-    <div class="card-container">
+    <h2>Nuestros productos</h2>
+    <div>
       <?php
       foreach ($resultado as $row) {
       ?>
-        <div class="card">
+        <div>
           <input type="hidden" id="id" value="<?php echo $row['id']; ?>">
           <img src="<?php echo $row['imagen'] ?>">
           <h3><?php echo $row['nombre']; ?></h3>
           <p><?php echo $row['descripcion'] ?></p>
           <span>$<?php echo $row['precio']; ?> MXN</span>
+          <h4><?php echo $row['categoria'] ?></h4>
           <br>
           <!-- <?php echo "<a href='producto.php'?id=" . $row['id'] . ">Comprar</a>" ?> -->
-          <button class="btn-add" onclick="location.href='generadorQR.php'">Comprar ahora</button>
+          <button onclick="location.href='generadorQR.php'">Comprar ahora</button>
         </div>
       <?php
       }

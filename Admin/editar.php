@@ -10,7 +10,6 @@ include("Connection/db.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar</title>
-    <link rel="stylesheet" href="CSS/style.css">
 </head>
 
 <body>
@@ -85,6 +84,8 @@ include("Connection/db.php");
                     <!-- YA CONFIRMÉ DE QUE FUNCIONA, ASI QUE MEJOR NO TOCO NADA  -->
                     <option value="hamburguesas">Hamburguesa</option>
                     <option value="bebidas">Bebida</option>
+                    <option value="alitas">Alitas</option>
+                    <option value="sides">Sides</option>
                 </select>
 
                 <br>
